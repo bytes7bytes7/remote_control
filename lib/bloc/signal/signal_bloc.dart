@@ -16,6 +16,7 @@ class SignalBloc extends Bloc<SignalEvent, SignalState> {
     on<_KeyPressedEvent>(_onKeyPressed);
     on<_MultipleKeysPressedEvent>(_onMultipleKeysPressed);
     on<_MouseMovedEvent>(_onMouseMoved);
+    on<_MousePressedEvent>(_onMousePressed);
   }
 
   final _dio = Dio(
@@ -52,7 +53,7 @@ class SignalBloc extends Bloc<SignalEvent, SignalState> {
         },
       );
     } catch (e) {
-      emit(state.copyWith(error: 'Ошибка при отправке: ${event.keys}'));
+      emit(state.copyWith(error: 'Ошибка при нажатии: ${event.keys}'));
     } finally {
       emit(state.copyWith(error: ''));
     }
@@ -75,7 +76,31 @@ class SignalBloc extends Bloc<SignalEvent, SignalState> {
     } catch (e) {
       emit(
         state.copyWith(
-          error: 'Ошибка при отправке: ${event.dx}, ${event.dy}',
+          error: 'Ошибка при передвижении мышки: ${event.dx}, ${event.dy}',
+        ),
+      );
+    } finally {
+      emit(state.copyWith(error: ''));
+    }
+  }
+
+  Future<void> _onMousePressed(
+    _MousePressedEvent event,
+    Emitter<SignalState> emit,
+  ) async {
+    try {
+      await _dio.post(
+        _getUrl(),
+        data: {
+          'mouse': {
+            'click': event.button,
+          },
+        },
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(
+          error: 'Ошибка при нажатии мышки: ${event.button}',
         ),
       );
     } finally {

@@ -1,4 +1,6 @@
 class MediaKeys {
+  const MediaKeys._();
+
   static const volumeUp = 'volumeup';
   static const volumeDown = 'volumedown';
   static const volumeMute = 'volumemute';

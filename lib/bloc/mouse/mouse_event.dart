@@ -10,4 +10,8 @@ class MouseEvent with _$MouseEvent {
   const factory MouseEvent.sensitivityUpdated({
     required double value,
   }) = _SensitivityUpdatedEvent;
+
+  const factory MouseEvent.pressed({
+    required String button,
+  }) = _PressedEvent;
 }

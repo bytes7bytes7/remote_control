@@ -21,6 +21,7 @@ class MouseBloc extends Bloc<MouseEvent, MouseState> {
           .asyncExpand(mapper),
     );
     on<_SensitivityUpdatedEvent>(_onSensitivityUpdated);
+    on<_PressedEvent>(_onPressed);
   }
 
   final SignalBloc _signalBloc;
@@ -42,5 +43,12 @@ class MouseBloc extends Bloc<MouseEvent, MouseState> {
     Emitter<MouseState> emit,
   ) {
     emit(state.copyWith(sensitivity: event.value));
+  }
+
+  void _onPressed(
+    _PressedEvent event,
+    Emitter<MouseState> emit,
+  ) {
+    _signalBloc.add(SignalEvent.mousePressed(button: event.button));
   }
 }

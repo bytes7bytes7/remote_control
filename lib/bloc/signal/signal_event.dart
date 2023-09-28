@@ -18,4 +18,8 @@ class SignalEvent with _$SignalEvent {
     required double dx,
     required double dy,
   }) = _MouseMovedEvent;
+
+  const factory SignalEvent.mousePressed({
+    required String button,
+  }) = _MousePressedEvent;
 }

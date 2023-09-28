@@ -20,18 +20,21 @@ mixin _$MouseEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(double dx, double dy) moved,
     required TResult Function(double value) sensitivityUpdated,
+    required TResult Function(String button) pressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(double dx, double dy)? moved,
     TResult? Function(double value)? sensitivityUpdated,
+    TResult? Function(String button)? pressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(double dx, double dy)? moved,
     TResult Function(double value)? sensitivityUpdated,
+    TResult Function(String button)? pressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$MouseEvent {
     required TResult Function(_MovedEvent value) moved,
     required TResult Function(_SensitivityUpdatedEvent value)
         sensitivityUpdated,
+    required TResult Function(_PressedEvent value) pressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MovedEvent value)? moved,
     TResult? Function(_SensitivityUpdatedEvent value)? sensitivityUpdated,
+    TResult? Function(_PressedEvent value)? pressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MovedEvent value)? moved,
     TResult Function(_SensitivityUpdatedEvent value)? sensitivityUpdated,
+    TResult Function(_PressedEvent value)? pressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,6 +155,7 @@ class _$MovedEventImpl implements _MovedEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(double dx, double dy) moved,
     required TResult Function(double value) sensitivityUpdated,
+    required TResult Function(String button) pressed,
   }) {
     return moved(dx, dy);
   }
@@ -158,6 +165,7 @@ class _$MovedEventImpl implements _MovedEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(double dx, double dy)? moved,
     TResult? Function(double value)? sensitivityUpdated,
+    TResult? Function(String button)? pressed,
   }) {
     return moved?.call(dx, dy);
   }
@@ -167,6 +175,7 @@ class _$MovedEventImpl implements _MovedEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(double dx, double dy)? moved,
     TResult Function(double value)? sensitivityUpdated,
+    TResult Function(String button)? pressed,
     required TResult orElse(),
   }) {
     if (moved != null) {
@@ -181,6 +190,7 @@ class _$MovedEventImpl implements _MovedEvent {
     required TResult Function(_MovedEvent value) moved,
     required TResult Function(_SensitivityUpdatedEvent value)
         sensitivityUpdated,
+    required TResult Function(_PressedEvent value) pressed,
   }) {
     return moved(this);
   }
@@ -190,6 +200,7 @@ class _$MovedEventImpl implements _MovedEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MovedEvent value)? moved,
     TResult? Function(_SensitivityUpdatedEvent value)? sensitivityUpdated,
+    TResult? Function(_PressedEvent value)? pressed,
   }) {
     return moved?.call(this);
   }
@@ -199,6 +210,7 @@ class _$MovedEventImpl implements _MovedEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MovedEvent value)? moved,
     TResult Function(_SensitivityUpdatedEvent value)? sensitivityUpdated,
+    TResult Function(_PressedEvent value)? pressed,
     required TResult orElse(),
   }) {
     if (moved != null) {
@@ -288,6 +300,7 @@ class _$SensitivityUpdatedEventImpl implements _SensitivityUpdatedEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(double dx, double dy) moved,
     required TResult Function(double value) sensitivityUpdated,
+    required TResult Function(String button) pressed,
   }) {
     return sensitivityUpdated(value);
   }
@@ -297,6 +310,7 @@ class _$SensitivityUpdatedEventImpl implements _SensitivityUpdatedEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(double dx, double dy)? moved,
     TResult? Function(double value)? sensitivityUpdated,
+    TResult? Function(String button)? pressed,
   }) {
     return sensitivityUpdated?.call(value);
   }
@@ -306,6 +320,7 @@ class _$SensitivityUpdatedEventImpl implements _SensitivityUpdatedEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(double dx, double dy)? moved,
     TResult Function(double value)? sensitivityUpdated,
+    TResult Function(String button)? pressed,
     required TResult orElse(),
   }) {
     if (sensitivityUpdated != null) {
@@ -320,6 +335,7 @@ class _$SensitivityUpdatedEventImpl implements _SensitivityUpdatedEvent {
     required TResult Function(_MovedEvent value) moved,
     required TResult Function(_SensitivityUpdatedEvent value)
         sensitivityUpdated,
+    required TResult Function(_PressedEvent value) pressed,
   }) {
     return sensitivityUpdated(this);
   }
@@ -329,6 +345,7 @@ class _$SensitivityUpdatedEventImpl implements _SensitivityUpdatedEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MovedEvent value)? moved,
     TResult? Function(_SensitivityUpdatedEvent value)? sensitivityUpdated,
+    TResult? Function(_PressedEvent value)? pressed,
   }) {
     return sensitivityUpdated?.call(this);
   }
@@ -338,6 +355,7 @@ class _$SensitivityUpdatedEventImpl implements _SensitivityUpdatedEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MovedEvent value)? moved,
     TResult Function(_SensitivityUpdatedEvent value)? sensitivityUpdated,
+    TResult Function(_PressedEvent value)? pressed,
     required TResult orElse(),
   }) {
     if (sensitivityUpdated != null) {
@@ -355,6 +373,147 @@ abstract class _SensitivityUpdatedEvent implements MouseEvent {
   @JsonKey(ignore: true)
   _$$SensitivityUpdatedEventImplCopyWith<_$SensitivityUpdatedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PressedEventImplCopyWith<$Res> {
+  factory _$$PressedEventImplCopyWith(
+          _$PressedEventImpl value, $Res Function(_$PressedEventImpl) then) =
+      __$$PressedEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String button});
+}
+
+/// @nodoc
+class __$$PressedEventImplCopyWithImpl<$Res>
+    extends _$MouseEventCopyWithImpl<$Res, _$PressedEventImpl>
+    implements _$$PressedEventImplCopyWith<$Res> {
+  __$$PressedEventImplCopyWithImpl(
+      _$PressedEventImpl _value, $Res Function(_$PressedEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? button = null,
+  }) {
+    return _then(_$PressedEventImpl(
+      button: null == button
+          ? _value.button
+          : button // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PressedEventImpl implements _PressedEvent {
+  const _$PressedEventImpl({required this.button});
+
+  @override
+  final String button;
+
+  @override
+  String toString() {
+    return 'MouseEvent.pressed(button: $button)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PressedEventImpl &&
+            (identical(other.button, button) || other.button == button));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, button);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PressedEventImplCopyWith<_$PressedEventImpl> get copyWith =>
+      __$$PressedEventImplCopyWithImpl<_$PressedEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(double dx, double dy) moved,
+    required TResult Function(double value) sensitivityUpdated,
+    required TResult Function(String button) pressed,
+  }) {
+    return pressed(button);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(double dx, double dy)? moved,
+    TResult? Function(double value)? sensitivityUpdated,
+    TResult? Function(String button)? pressed,
+  }) {
+    return pressed?.call(button);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(double dx, double dy)? moved,
+    TResult Function(double value)? sensitivityUpdated,
+    TResult Function(String button)? pressed,
+    required TResult orElse(),
+  }) {
+    if (pressed != null) {
+      return pressed(button);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MovedEvent value) moved,
+    required TResult Function(_SensitivityUpdatedEvent value)
+        sensitivityUpdated,
+    required TResult Function(_PressedEvent value) pressed,
+  }) {
+    return pressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MovedEvent value)? moved,
+    TResult? Function(_SensitivityUpdatedEvent value)? sensitivityUpdated,
+    TResult? Function(_PressedEvent value)? pressed,
+  }) {
+    return pressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MovedEvent value)? moved,
+    TResult Function(_SensitivityUpdatedEvent value)? sensitivityUpdated,
+    TResult Function(_PressedEvent value)? pressed,
+    required TResult orElse(),
+  }) {
+    if (pressed != null) {
+      return pressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PressedEvent implements MouseEvent {
+  const factory _PressedEvent({required final String button}) =
+      _$PressedEventImpl;
+
+  String get button;
+  @JsonKey(ignore: true)
+  _$$PressedEventImplCopyWith<_$PressedEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

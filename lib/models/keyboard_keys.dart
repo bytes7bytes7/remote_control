@@ -1,4 +1,6 @@
 class KeyboardKeys {
+  const KeyboardKeys._();
+
   static const backspace = 'backspace';
   static const enter = 'enter';
   static const alt = 'alt';
