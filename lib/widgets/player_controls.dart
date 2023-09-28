@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/player/player_bloc.dart';
 import '../bloc/signal/signal_bloc.dart';
+import 'circle_button.dart';
 
 class PlayerControls extends StatelessWidget {
   const PlayerControls({super.key});
@@ -32,88 +33,69 @@ class _Body extends StatelessWidget {
 
     return BlocBuilder<PlayerBloc, PlayerState>(
       builder: (context, state) {
-        return Column(
-          children: [
-            Expanded(
-              child: Row(
+        return Center(
+          child: ListView(
+            shrinkWrap: true,
+            padding: const EdgeInsets.symmetric(
+              vertical: 10,
+            ),
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Expanded(
-                    child: ListView(
-                      children: [
-                        _Button(
-                          onPressed: () {
-                            bloc.add(const PlayerEvent.volumeDownPressed());
-                          },
-                          child: const Icon(Icons.volume_down),
-                        ),
-                        _Button(
-                          onPressed: () {
-                            bloc.add(const PlayerEvent.playPausePressed());
-                          },
-                          child: const Icon(Icons.play_arrow),
-                        ),
-                        _Button(
-                          onPressed: () {
-                            bloc.add(const PlayerEvent.previousPressed());
-                          },
-                          child: const Icon(Icons.skip_previous),
-                        ),
-                      ],
-                    ),
+                  CircleButton(
+                    onPressed: () {
+                      bloc.add(const PlayerEvent.previousPressed());
+                    },
+                    icon: Icons.skip_previous,
                   ),
-                  Expanded(
-                    child: ListView(
-                      children: [
-                        _Button(
-                          onPressed: () {
-                            bloc.add(const PlayerEvent.volumeUpPressed());
-                          },
-                          child: const Icon(Icons.volume_up),
-                        ),
-                        _Button(
-                          onPressed: () {
-                            bloc.add(const PlayerEvent.mutePressed());
-                          },
-                          child: const Icon(Icons.volume_mute),
-                        ),
-                        _Button(
-                          onPressed: () {
-                            bloc.add(const PlayerEvent.nextPressed());
-                          },
-                          child: const Icon(Icons.skip_next),
-                        ),
-                      ],
-                    ),
+                  CircleButton(
+                    onPressed: () {
+                      bloc.add(const PlayerEvent.playPausePressed());
+                    },
+                    icon: Icons.play_arrow,
+                  ),
+                  CircleButton(
+                    onPressed: () {
+                      bloc.add(const PlayerEvent.nextPressed());
+                    },
+                    icon: Icons.skip_next,
                   ),
                 ],
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CircleButton(
+                    onPressed: () {
+                      bloc.add(const PlayerEvent.volumeDownPressed());
+                    },
+                    icon: Icons.volume_down,
+                    size: CircleButtonSize.small,
+                  ),
+                  CircleButton(
+                    onPressed: () {
+                      bloc.add(const PlayerEvent.volumeUpPressed());
+                    },
+                    icon: Icons.volume_up,
+                    size: CircleButtonSize.small,
+                  ),
+                ],
+              ),
+              CircleButton(
+                onPressed: () {
+                  bloc.add(const PlayerEvent.mutePressed());
+                },
+                icon: Icons.volume_off,
+                size: CircleButtonSize.small,
+              ),
+            ],
+          ),
         );
       },
-    );
-  }
-}
-
-class _Button extends StatelessWidget {
-  const _Button({
-    required this.onPressed,
-    required this.child,
-  });
-
-  final VoidCallback onPressed;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return UnconstrainedBox(
-      child: SizedBox.square(
-        dimension: 70,
-        child: ElevatedButton(
-          onPressed: onPressed,
-          child: child,
-        ),
-      ),
     );
   }
 }

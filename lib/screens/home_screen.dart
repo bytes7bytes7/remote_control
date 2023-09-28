@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/signal/signal_bloc.dart';
+import '../widgets/player_controls.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           centerTitle: true,
           title: const Text('Remote Control'),
         ),
-        body: SafeArea(
+        body: const SafeArea(
           child: _Body(),
         ),
       ),
@@ -55,44 +56,48 @@ class _BodyState extends State<_Body> with TickerProviderStateMixin {
       builder: (context, state) {
         return Column(
           children: [
-            Flexible(
-              child: TextField(
-                onChanged: (v) {
-                  bloc.add(SignalEvent.addressUpdated(address: v));
-                },
-                decoration: const InputDecoration(
-                  hintText: 'PC Address',
-                ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+              ),
+              child: Column(
+                children: [
+                  TextField(
+                    onChanged: (v) {
+                      bloc.add(SignalEvent.addressUpdated(address: v));
+                    },
+                    decoration: const InputDecoration(
+                      hintText: 'PC Address',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  if (state.error.isNotEmpty) ...[
+                    Text(
+                      state.error,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ],
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            if (state.error.isNotEmpty) ...[
-              Text(
-                state.error,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-            ],
             TabBar.secondary(
               controller: _tabController,
               tabs: const [
-                Tab(text: 'Overview'),
+                Tab(text: 'Player'),
                 Tab(text: 'Specifications'),
               ],
             ),
             Expanded(
               child: TabBarView(
                 controller: _tabController,
-                children: <Widget>[
+                children: const [
+                  PlayerControls(),
                   Card(
-                    margin: const EdgeInsets.all(16.0),
-                    child: Center(child: Text('Overview tab')),
-                  ),
-                  Card(
-                    margin: const EdgeInsets.all(16.0),
+                    margin: EdgeInsets.all(16.0),
                     child: Center(
                       child: Text('Specifications tab'),
                     ),
