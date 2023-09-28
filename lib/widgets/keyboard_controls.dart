@@ -57,79 +57,13 @@ class _Body extends StatelessWidget {
             final itemWidth = maxWidth / maxItems;
 
             return Center(
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: row1.map(
-                      (e) {
-                        return KeyboardButton(
-                          value: Text(
-                            state.shiftState == ShiftState.off
-                                ? e.key.toLowerCase()
-                                : e.key.toUpperCase(),
-                          ),
-                          size: Size(itemWidth, _keyHeight),
-                          onPressed: () {
-                            bloc.add(
-                              KeyboardEvent.textEdited(
-                                text: state.shiftState == ShiftState.off
-                                    ? e.value.toLowerCase()
-                                    : e.value.toUpperCase(),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                    ).toList(),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: row2.map(
-                      (e) {
-                        return KeyboardButton(
-                          value: Text(
-                            state.shiftState == ShiftState.off
-                                ? e.key.toLowerCase()
-                                : e.key.toUpperCase(),
-                          ),
-                          size: Size(itemWidth, _keyHeight),
-                          onPressed: () {
-                            bloc.add(
-                              KeyboardEvent.textEdited(
-                                text: state.shiftState == ShiftState.off
-                                    ? e.value.toLowerCase()
-                                    : e.value.toUpperCase(),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                    ).toList(),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      KeyboardButton(
-                        value: Icon(
-                          state.shiftState == ShiftState.off
-                              ? Icons.arrow_downward
-                              : Icons.arrow_upward,
-                          color: state.shiftState == ShiftState.permanent
-                              ? Colors.white
-                              : null,
-                          size: _iconSize,
-                        ),
-                        size: Size(itemWidth, _keyHeight),
-                        background: state.shiftState == ShiftState.permanent
-                            ? Colors.lightBlueAccent
-                            : _highlightBG,
-                        onPressed: () {
-                          bloc.add(const KeyboardEvent.shirtPressed());
-                        },
-                      ),
-                      ...row3.map(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: row1.map(
                         (e) {
                           return KeyboardButton(
                             value: Text(
@@ -149,81 +83,149 @@ class _Body extends StatelessWidget {
                             },
                           );
                         },
-                      ),
-                      KeyboardButton(
-                        value: const Icon(
-                          Icons.backspace,
-                          size: _iconSize,
-                        ),
-                        size: Size(itemWidth, _keyHeight),
-                        background: _highlightBG,
-                        onPressed: () {
-                          bloc.add(
-                            const KeyboardEvent.textEdited(
-                              text: KeyboardKeys.backspace,
+                      ).toList(),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: row2.map(
+                        (e) {
+                          return KeyboardButton(
+                            value: Text(
+                              state.shiftState == ShiftState.off
+                                  ? e.key.toLowerCase()
+                                  : e.key.toUpperCase(),
                             ),
+                            size: Size(itemWidth, _keyHeight),
+                            onPressed: () {
+                              bloc.add(
+                                KeyboardEvent.textEdited(
+                                  text: state.shiftState == ShiftState.off
+                                      ? e.value.toLowerCase()
+                                      : e.value.toUpperCase(),
+                                ),
+                              );
+                            },
                           );
                         },
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        width: _keyMargin,
-                      ),
-                      KeyboardButton(
-                        value: const Icon(
-                          Icons.language,
-                          size: _iconSize,
-                        ),
-                        size: Size(itemWidth, _keyHeight),
-                        onPressed: () {
-                          bloc.add(const KeyboardEvent.languagePressed());
-                        },
-                      ),
-                      KeyboardButton(
-                        value: const Text(','),
-                        size: Size(itemWidth, _keyHeight),
-                        onPressed: () {
-                          bloc.add(const KeyboardEvent.textEdited(text: ','));
-                        },
-                      ),
-                      Expanded(
-                        child: KeyboardButton(
-                          value: Text(state.language.space),
-                          size: const Size.fromHeight(_keyHeight),
+                      ).toList(),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        KeyboardButton(
+                          value: Icon(
+                            state.shiftState == ShiftState.off
+                                ? Icons.arrow_downward
+                                : Icons.arrow_upward,
+                            color: state.shiftState == ShiftState.permanent
+                                ? Colors.white
+                                : null,
+                            size: _iconSize,
+                          ),
+                          size: Size(itemWidth, _keyHeight),
+                          background: state.shiftState == ShiftState.permanent
+                              ? Colors.lightBlueAccent
+                              : _highlightBG,
                           onPressed: () {
-                            bloc.add(const KeyboardEvent.textEdited(text: ' '));
+                            bloc.add(const KeyboardEvent.shirtPressed());
                           },
                         ),
-                      ),
-                      KeyboardButton(
-                        value: const Text('.'),
-                        size: Size(itemWidth, _keyHeight),
-                        onPressed: () {
-                          bloc.add(const KeyboardEvent.textEdited(text: '.'));
-                        },
-                      ),
-                      KeyboardButton(
-                        value: Text(state.language.submit),
-                        size: Size(itemWidth, _keyHeight),
-                        background: _highlightBG,
-                        onPressed: () {
-                          bloc.add(
-                            const KeyboardEvent.textEdited(
-                              text: KeyboardKeys.enter,
-                            ),
-                          );
-                        },
-                      ),
-                      const SizedBox(
-                        width: _keyMargin,
-                      ),
-                    ],
-                  ),
-                ],
+                        ...row3.map(
+                          (e) {
+                            return KeyboardButton(
+                              value: Text(
+                                state.shiftState == ShiftState.off
+                                    ? e.key.toLowerCase()
+                                    : e.key.toUpperCase(),
+                              ),
+                              size: Size(itemWidth, _keyHeight),
+                              onPressed: () {
+                                bloc.add(
+                                  KeyboardEvent.textEdited(
+                                    text: state.shiftState == ShiftState.off
+                                        ? e.value.toLowerCase()
+                                        : e.value.toUpperCase(),
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        ),
+                        KeyboardButton(
+                          value: const Icon(
+                            Icons.backspace,
+                            size: _iconSize,
+                          ),
+                          size: Size(itemWidth, _keyHeight),
+                          background: _highlightBG,
+                          onPressed: () {
+                            bloc.add(
+                              const KeyboardEvent.textEdited(
+                                text: KeyboardKeys.backspace,
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(
+                          width: _keyMargin,
+                        ),
+                        KeyboardButton(
+                          value: const Icon(
+                            Icons.language,
+                            size: _iconSize,
+                          ),
+                          size: Size(itemWidth, _keyHeight),
+                          onPressed: () {
+                            bloc.add(const KeyboardEvent.languagePressed());
+                          },
+                        ),
+                        KeyboardButton(
+                          value: const Text(','),
+                          size: Size(itemWidth, _keyHeight),
+                          onPressed: () {
+                            bloc.add(const KeyboardEvent.textEdited(text: ','));
+                          },
+                        ),
+                        Expanded(
+                          child: KeyboardButton(
+                            value: Text(state.language.space),
+                            size: const Size.fromHeight(_keyHeight),
+                            onPressed: () {
+                              bloc.add(const KeyboardEvent.textEdited(text: ' '));
+                            },
+                          ),
+                        ),
+                        KeyboardButton(
+                          value: const Text('.'),
+                          size: Size(itemWidth, _keyHeight),
+                          onPressed: () {
+                            bloc.add(const KeyboardEvent.textEdited(text: '.'));
+                          },
+                        ),
+                        KeyboardButton(
+                          value: Text(state.language.submit),
+                          size: Size(itemWidth, _keyHeight),
+                          background: _highlightBG,
+                          onPressed: () {
+                            bloc.add(
+                              const KeyboardEvent.textEdited(
+                                text: KeyboardKeys.enter,
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(
+                          width: _keyMargin,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             );
           },

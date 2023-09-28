@@ -28,84 +28,86 @@ class _Body extends StatelessWidget {
 
     return BlocBuilder<MouseBloc, MouseState>(
       builder: (context, state) {
-        return Column(
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            const Text('Sensitivity'),
-            Slider(
-              value: state.sensitivity,
-              min: 1,
-              max: 50,
-              onChanged: (v) {
-                bloc.add(MouseEvent.sensitivityUpdated(value: v));
-              },
-            ),
-            Expanded(
-              child: Column(
-                children: [
-                  Expanded(
-                    flex: 5,
-                    child: GestureDetector(
-                      onPanUpdate: (e) {
-                        bloc.add(
-                          MouseEvent.moved(
-                            dx: e.delta.dx,
-                            dy: e.delta.dy,
+        return Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              const Text('Sensitivity'),
+              Slider(
+                value: state.sensitivity,
+                min: 1,
+                max: 50,
+                onChanged: (v) {
+                  bloc.add(MouseEvent.sensitivityUpdated(value: v));
+                },
+              ),
+              Expanded(
+                child: Column(
+                  children: [
+                    Expanded(
+                      flex: 5,
+                      child: GestureDetector(
+                        onPanUpdate: (e) {
+                          bloc.add(
+                            MouseEvent.moved(
+                              dx: e.delta.dx,
+                              dy: e.delta.dy,
+                            ),
+                          );
+                        },
+                        child: const Card(
+                          child: Center(
+                            child: Text('TouchPad'),
                           ),
-                        );
-                      },
-                      child: const Card(
-                        child: Center(
-                          child: Text('TouchPad'),
                         ),
                       ),
                     ),
-                  ),
-                  Flexible(
-                    flex: 1,
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: GestureDetector(
-                            onTap: () {
-                              bloc.add(
-                                const MouseEvent.pressed(
-                                  button: MouseButtons.left,
-                                ),
-                              );
-                            },
+                    Flexible(
+                      flex: 1,
+                      child: Row(
+                        children: [
+                          Expanded(
                             child: Card(
-                              child: Center(
-                                child: Text('L'),
+                              clipBehavior: Clip.hardEdge,
+                              child: InkWell(
+                                onTap: () {
+                                  bloc.add(
+                                    const MouseEvent.pressed(
+                                      button: MouseButtons.left,
+                                    ),
+                                  );
+                                },
+                                child: const Center(
+                                  child: Text('L'),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        Expanded(
-                          child: GestureDetector(
-                            onTap: () {
-                              bloc.add(
-                                const MouseEvent.pressed(
-                                  button: MouseButtons.right,
-                                ),
-                              );
-                            },
+                          Expanded(
                             child: Card(
-                              child: Center(
-                                child: Text('R'),
+                              clipBehavior: Clip.hardEdge,
+                              child: InkWell(
+                                onTap: () {
+                                  bloc.add(
+                                    const MouseEvent.pressed(
+                                      button: MouseButtons.right,
+                                    ),
+                                  );
+                                },
+                                child: const Center(
+                                  child: Text('R'),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );
