@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/signal/signal_bloc.dart';
 import '../widgets/keyboard_controls.dart';
 import '../widgets/player_controls.dart';
+import '../widgets/shortcut_controls.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -87,12 +88,16 @@ class _BodyState extends State<_Body> with TickerProviderStateMixin {
             ),
             TabBar.secondary(
               controller: _tabController,
+              isScrollable: true,
               tabs: const [
                 Tab(
                   text: 'Player',
                 ),
                 Tab(
                   text: 'Keyboard',
+                ),
+                Tab(
+                  text: 'Shortcuts',
                 ),
               ],
             ),
@@ -102,6 +107,7 @@ class _BodyState extends State<_Body> with TickerProviderStateMixin {
                 children: const [
                   PlayerControls(),
                   KeyboardControls(),
+                  ShortcutControls(),
                 ],
               ),
             ),
