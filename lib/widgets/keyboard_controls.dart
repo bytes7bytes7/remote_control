@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/keyboard/keyboard_bloc.dart';
-import '../bloc/keyboard/keyboard_keys.dart';
 import '../bloc/signal/signal_bloc.dart';
+import '../models/keyboard_keys.dart';
 
 const _iconSize = 16.0;
 const _keyHeight = 50.0;

@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../models/keyboard_keys.dart';
 import '../signal/signal_bloc.dart';
 import 'keyboard_language.dart';
 
@@ -65,9 +66,16 @@ class KeyboardBloc extends Bloc<KeyboardEvent, KeyboardState> {
     _LanguagePressedEvent event,
     Emitter<KeyboardState> emit,
   ) {
-    final index = state.allLanguages.indexWhere((e) => e.code == state.language.code);
+    final index =
+        state.allLanguages.indexWhere((e) => e.code == state.language.code);
     final next = state.allLanguages[(index + 1) % state.allLanguages.length];
 
     emit(state.copyWith(language: next));
+
+    _signalBloc.add(
+      const SignalEvent.multipleKeysPressed(
+        keys: [KeyboardKeys.alt, KeyboardKeys.shift],
+      ),
+    );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../models/media_keys.dart';
 import '../signal/signal_bloc.dart';
 
 part 'player_event.dart';
@@ -29,7 +30,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   ) {
     _signalBloc.add(
       const SignalEvent.keyPressed(
-        key: _ControlKeys.volumeDown,
+        key: MediaKeys.volumeDown,
       ),
     );
   }
@@ -40,7 +41,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   ) {
     _signalBloc.add(
       const SignalEvent.keyPressed(
-        key: _ControlKeys.volumeUp,
+        key: MediaKeys.volumeUp,
       ),
     );
   }
@@ -51,7 +52,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   ) {
     _signalBloc.add(
       const SignalEvent.keyPressed(
-        key: _ControlKeys.volumeMute,
+        key: MediaKeys.volumeMute,
       ),
     );
   }
@@ -62,7 +63,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   ) {
     _signalBloc.add(
       const SignalEvent.keyPressed(
-        key: _ControlKeys.playPause,
+        key: MediaKeys.playPause,
       ),
     );
   }
@@ -73,7 +74,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   ) {
     _signalBloc.add(
       const SignalEvent.keyPressed(
-        key: _ControlKeys.prevTrack,
+        key: MediaKeys.prevTrack,
       ),
     );
   }
@@ -84,17 +85,8 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   ) {
     _signalBloc.add(
       const SignalEvent.keyPressed(
-        key: _ControlKeys.nextTrack,
+        key: MediaKeys.nextTrack,
       ),
     );
   }
-}
-
-class _ControlKeys {
-  static const volumeUp = 'volumeup';
-  static const volumeDown = 'volumedown';
-  static const volumeMute = 'volumemute';
-  static const playPause = 'playpause';
-  static const nextTrack = 'nexttrack';
-  static const prevTrack = 'prevtrack';
 }
