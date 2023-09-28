@@ -38,9 +38,12 @@ class _Body extends StatelessWidget {
         return BlocBuilder<KeyboardBloc, KeyboardState>(
           builder: (context, state) {
             final keys = state.language.keys;
-            final row1 = keys.isNotEmpty ? keys[0] : <String>[];
-            final row2 = keys.length > 1 ? keys[1] : <String>[];
-            final row3 = keys.length > 2 ? keys[2] : <String>[];
+            final row1 =
+                keys.isNotEmpty ? keys[0] : <MapEntry<String, String>>[];
+            final row2 =
+                keys.length > 1 ? keys[1] : <MapEntry<String, String>>[];
+            final row3 =
+                keys.length > 2 ? keys[2] : <MapEntry<String, String>>[];
 
             const row3FuncButtonsAmount = 2;
 
@@ -64,12 +67,18 @@ class _Body extends StatelessWidget {
                         return KeyboardButton(
                           value: Text(
                             state.shiftState == ShiftState.off
-                                ? e
-                                : e.toUpperCase(),
+                                ? e.key.toLowerCase()
+                                : e.key.toUpperCase(),
                           ),
                           size: Size(itemWidth, _keyHeight),
                           onPressed: () {
-                            bloc.add(KeyboardEvent.textEdited(text: e));
+                            bloc.add(
+                              KeyboardEvent.textEdited(
+                                text: state.shiftState == ShiftState.off
+                                    ? e.value.toLowerCase()
+                                    : e.value.toUpperCase(),
+                              ),
+                            );
                           },
                         );
                       },
@@ -82,12 +91,18 @@ class _Body extends StatelessWidget {
                         return KeyboardButton(
                           value: Text(
                             state.shiftState == ShiftState.off
-                                ? e
-                                : e.toUpperCase(),
+                                ? e.key.toLowerCase()
+                                : e.key.toUpperCase(),
                           ),
                           size: Size(itemWidth, _keyHeight),
                           onPressed: () {
-                            bloc.add(KeyboardEvent.textEdited(text: e));
+                            bloc.add(
+                              KeyboardEvent.textEdited(
+                                text: state.shiftState == ShiftState.off
+                                    ? e.value.toLowerCase()
+                                    : e.value.toUpperCase(),
+                              ),
+                            );
                           },
                         );
                       },
@@ -119,12 +134,18 @@ class _Body extends StatelessWidget {
                           return KeyboardButton(
                             value: Text(
                               state.shiftState == ShiftState.off
-                                  ? e
-                                  : e.toUpperCase(),
+                                  ? e.key.toLowerCase()
+                                  : e.key.toUpperCase(),
                             ),
                             size: Size(itemWidth, _keyHeight),
                             onPressed: () {
-                              bloc.add(KeyboardEvent.textEdited(text: e));
+                              bloc.add(
+                                KeyboardEvent.textEdited(
+                                  text: state.shiftState == ShiftState.off
+                                      ? e.value.toLowerCase()
+                                      : e.value.toUpperCase(),
+                                ),
+                              );
                             },
                           );
                         },
