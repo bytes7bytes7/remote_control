@@ -19,38 +19,45 @@ mixin _$SignalEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String address) addressUpdated,
-    required TResult Function(List<String> keys) keysPressed,
+    required TResult Function(String key) keyPressed,
+    required TResult Function(List<String> keys) multipleKeysPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String address)? addressUpdated,
-    TResult? Function(List<String> keys)? keysPressed,
+    TResult? Function(String key)? keyPressed,
+    TResult? Function(List<String> keys)? multipleKeysPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String address)? addressUpdated,
-    TResult Function(List<String> keys)? keysPressed,
+    TResult Function(String key)? keyPressed,
+    TResult Function(List<String> keys)? multipleKeysPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AddressUpdatedEvent value) addressUpdated,
-    required TResult Function(_KeysPressedEvent value) keysPressed,
+    required TResult Function(_KeyPressedEvent value) keyPressed,
+    required TResult Function(_MultipleKeysPressedEvent value)
+        multipleKeysPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
-    TResult? Function(_KeysPressedEvent value)? keysPressed,
+    TResult? Function(_KeyPressedEvent value)? keyPressed,
+    TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
-    TResult Function(_KeysPressedEvent value)? keysPressed,
+    TResult Function(_KeyPressedEvent value)? keyPressed,
+    TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,7 +147,8 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String address) addressUpdated,
-    required TResult Function(List<String> keys) keysPressed,
+    required TResult Function(String key) keyPressed,
+    required TResult Function(List<String> keys) multipleKeysPressed,
   }) {
     return addressUpdated(address);
   }
@@ -149,7 +157,8 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String address)? addressUpdated,
-    TResult? Function(List<String> keys)? keysPressed,
+    TResult? Function(String key)? keyPressed,
+    TResult? Function(List<String> keys)? multipleKeysPressed,
   }) {
     return addressUpdated?.call(address);
   }
@@ -158,7 +167,8 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String address)? addressUpdated,
-    TResult Function(List<String> keys)? keysPressed,
+    TResult Function(String key)? keyPressed,
+    TResult Function(List<String> keys)? multipleKeysPressed,
     required TResult orElse(),
   }) {
     if (addressUpdated != null) {
@@ -171,7 +181,9 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AddressUpdatedEvent value) addressUpdated,
-    required TResult Function(_KeysPressedEvent value) keysPressed,
+    required TResult Function(_KeyPressedEvent value) keyPressed,
+    required TResult Function(_MultipleKeysPressedEvent value)
+        multipleKeysPressed,
   }) {
     return addressUpdated(this);
   }
@@ -180,7 +192,8 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
-    TResult? Function(_KeysPressedEvent value)? keysPressed,
+    TResult? Function(_KeyPressedEvent value)? keyPressed,
+    TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
   }) {
     return addressUpdated?.call(this);
   }
@@ -189,7 +202,8 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
-    TResult Function(_KeysPressedEvent value)? keysPressed,
+    TResult Function(_KeyPressedEvent value)? keyPressed,
+    TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
     required TResult orElse(),
   }) {
     if (addressUpdated != null) {
@@ -210,20 +224,164 @@ abstract class _AddressUpdatedEvent implements SignalEvent {
 }
 
 /// @nodoc
-abstract class _$$KeysPressedEventImplCopyWith<$Res> {
-  factory _$$KeysPressedEventImplCopyWith(_$KeysPressedEventImpl value,
-          $Res Function(_$KeysPressedEventImpl) then) =
-      __$$KeysPressedEventImplCopyWithImpl<$Res>;
+abstract class _$$KeyPressedEventImplCopyWith<$Res> {
+  factory _$$KeyPressedEventImplCopyWith(_$KeyPressedEventImpl value,
+          $Res Function(_$KeyPressedEventImpl) then) =
+      __$$KeyPressedEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String key});
+}
+
+/// @nodoc
+class __$$KeyPressedEventImplCopyWithImpl<$Res>
+    extends _$SignalEventCopyWithImpl<$Res, _$KeyPressedEventImpl>
+    implements _$$KeyPressedEventImplCopyWith<$Res> {
+  __$$KeyPressedEventImplCopyWithImpl(
+      _$KeyPressedEventImpl _value, $Res Function(_$KeyPressedEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? key = null,
+  }) {
+    return _then(_$KeyPressedEventImpl(
+      key: null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$KeyPressedEventImpl implements _KeyPressedEvent {
+  const _$KeyPressedEventImpl({required this.key});
+
+  @override
+  final String key;
+
+  @override
+  String toString() {
+    return 'SignalEvent.keyPressed(key: $key)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$KeyPressedEventImpl &&
+            (identical(other.key, key) || other.key == key));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, key);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$KeyPressedEventImplCopyWith<_$KeyPressedEventImpl> get copyWith =>
+      __$$KeyPressedEventImplCopyWithImpl<_$KeyPressedEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String address) addressUpdated,
+    required TResult Function(String key) keyPressed,
+    required TResult Function(List<String> keys) multipleKeysPressed,
+  }) {
+    return keyPressed(key);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String address)? addressUpdated,
+    TResult? Function(String key)? keyPressed,
+    TResult? Function(List<String> keys)? multipleKeysPressed,
+  }) {
+    return keyPressed?.call(key);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String address)? addressUpdated,
+    TResult Function(String key)? keyPressed,
+    TResult Function(List<String> keys)? multipleKeysPressed,
+    required TResult orElse(),
+  }) {
+    if (keyPressed != null) {
+      return keyPressed(key);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AddressUpdatedEvent value) addressUpdated,
+    required TResult Function(_KeyPressedEvent value) keyPressed,
+    required TResult Function(_MultipleKeysPressedEvent value)
+        multipleKeysPressed,
+  }) {
+    return keyPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
+    TResult? Function(_KeyPressedEvent value)? keyPressed,
+    TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+  }) {
+    return keyPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AddressUpdatedEvent value)? addressUpdated,
+    TResult Function(_KeyPressedEvent value)? keyPressed,
+    TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    required TResult orElse(),
+  }) {
+    if (keyPressed != null) {
+      return keyPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _KeyPressedEvent implements SignalEvent {
+  const factory _KeyPressedEvent({required final String key}) =
+      _$KeyPressedEventImpl;
+
+  String get key;
+  @JsonKey(ignore: true)
+  _$$KeyPressedEventImplCopyWith<_$KeyPressedEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MultipleKeysPressedEventImplCopyWith<$Res> {
+  factory _$$MultipleKeysPressedEventImplCopyWith(
+          _$MultipleKeysPressedEventImpl value,
+          $Res Function(_$MultipleKeysPressedEventImpl) then) =
+      __$$MultipleKeysPressedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<String> keys});
 }
 
 /// @nodoc
-class __$$KeysPressedEventImplCopyWithImpl<$Res>
-    extends _$SignalEventCopyWithImpl<$Res, _$KeysPressedEventImpl>
-    implements _$$KeysPressedEventImplCopyWith<$Res> {
-  __$$KeysPressedEventImplCopyWithImpl(_$KeysPressedEventImpl _value,
-      $Res Function(_$KeysPressedEventImpl) _then)
+class __$$MultipleKeysPressedEventImplCopyWithImpl<$Res>
+    extends _$SignalEventCopyWithImpl<$Res, _$MultipleKeysPressedEventImpl>
+    implements _$$MultipleKeysPressedEventImplCopyWith<$Res> {
+  __$$MultipleKeysPressedEventImplCopyWithImpl(
+      _$MultipleKeysPressedEventImpl _value,
+      $Res Function(_$MultipleKeysPressedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -231,7 +389,7 @@ class __$$KeysPressedEventImplCopyWithImpl<$Res>
   $Res call({
     Object? keys = null,
   }) {
-    return _then(_$KeysPressedEventImpl(
+    return _then(_$MultipleKeysPressedEventImpl(
       keys: null == keys
           ? _value._keys
           : keys // ignore: cast_nullable_to_non_nullable
@@ -242,8 +400,8 @@ class __$$KeysPressedEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$KeysPressedEventImpl implements _KeysPressedEvent {
-  const _$KeysPressedEventImpl({required final List<String> keys})
+class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
+  const _$MultipleKeysPressedEventImpl({required final List<String> keys})
       : _keys = keys;
 
   final List<String> _keys;
@@ -256,14 +414,14 @@ class _$KeysPressedEventImpl implements _KeysPressedEvent {
 
   @override
   String toString() {
-    return 'SignalEvent.keysPressed(keys: $keys)';
+    return 'SignalEvent.multipleKeysPressed(keys: $keys)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$KeysPressedEventImpl &&
+            other is _$MultipleKeysPressedEventImpl &&
             const DeepCollectionEquality().equals(other._keys, _keys));
   }
 
@@ -274,37 +432,40 @@ class _$KeysPressedEventImpl implements _KeysPressedEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$KeysPressedEventImplCopyWith<_$KeysPressedEventImpl> get copyWith =>
-      __$$KeysPressedEventImplCopyWithImpl<_$KeysPressedEventImpl>(
-          this, _$identity);
+  _$$MultipleKeysPressedEventImplCopyWith<_$MultipleKeysPressedEventImpl>
+      get copyWith => __$$MultipleKeysPressedEventImplCopyWithImpl<
+          _$MultipleKeysPressedEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String address) addressUpdated,
-    required TResult Function(List<String> keys) keysPressed,
+    required TResult Function(String key) keyPressed,
+    required TResult Function(List<String> keys) multipleKeysPressed,
   }) {
-    return keysPressed(keys);
+    return multipleKeysPressed(keys);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String address)? addressUpdated,
-    TResult? Function(List<String> keys)? keysPressed,
+    TResult? Function(String key)? keyPressed,
+    TResult? Function(List<String> keys)? multipleKeysPressed,
   }) {
-    return keysPressed?.call(keys);
+    return multipleKeysPressed?.call(keys);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String address)? addressUpdated,
-    TResult Function(List<String> keys)? keysPressed,
+    TResult Function(String key)? keyPressed,
+    TResult Function(List<String> keys)? multipleKeysPressed,
     required TResult orElse(),
   }) {
-    if (keysPressed != null) {
-      return keysPressed(keys);
+    if (multipleKeysPressed != null) {
+      return multipleKeysPressed(keys);
     }
     return orElse();
   }
@@ -313,42 +474,46 @@ class _$KeysPressedEventImpl implements _KeysPressedEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AddressUpdatedEvent value) addressUpdated,
-    required TResult Function(_KeysPressedEvent value) keysPressed,
+    required TResult Function(_KeyPressedEvent value) keyPressed,
+    required TResult Function(_MultipleKeysPressedEvent value)
+        multipleKeysPressed,
   }) {
-    return keysPressed(this);
+    return multipleKeysPressed(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
-    TResult? Function(_KeysPressedEvent value)? keysPressed,
+    TResult? Function(_KeyPressedEvent value)? keyPressed,
+    TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
   }) {
-    return keysPressed?.call(this);
+    return multipleKeysPressed?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
-    TResult Function(_KeysPressedEvent value)? keysPressed,
+    TResult Function(_KeyPressedEvent value)? keyPressed,
+    TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
     required TResult orElse(),
   }) {
-    if (keysPressed != null) {
-      return keysPressed(this);
+    if (multipleKeysPressed != null) {
+      return multipleKeysPressed(this);
     }
     return orElse();
   }
 }
 
-abstract class _KeysPressedEvent implements SignalEvent {
-  const factory _KeysPressedEvent({required final List<String> keys}) =
-      _$KeysPressedEventImpl;
+abstract class _MultipleKeysPressedEvent implements SignalEvent {
+  const factory _MultipleKeysPressedEvent({required final List<String> keys}) =
+      _$MultipleKeysPressedEventImpl;
 
   List<String> get keys;
   @JsonKey(ignore: true)
-  _$$KeysPressedEventImplCopyWith<_$KeysPressedEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$MultipleKeysPressedEventImplCopyWith<_$MultipleKeysPressedEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

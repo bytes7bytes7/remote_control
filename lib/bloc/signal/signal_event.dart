@@ -6,7 +6,11 @@ class SignalEvent with _$SignalEvent {
     required String address,
   }) = _AddressUpdatedEvent;
 
-  const factory SignalEvent.keysPressed({
+  const factory SignalEvent.keyPressed({
+    required String key,
+  }) = _KeyPressedEvent;
+
+  const factory SignalEvent.multipleKeysPressed({
     required List<String> keys,
-  }) = _KeysPressedEvent;
+  }) = _MultipleKeysPressedEvent;
 }

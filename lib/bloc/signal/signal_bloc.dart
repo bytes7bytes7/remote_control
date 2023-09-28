@@ -11,7 +11,8 @@ part 'signal_bloc.freezed.dart';
 class SignalBloc extends Bloc<SignalEvent, SignalState> {
   SignalBloc() : super(const SignalState()) {
     on<_AddressUpdatedEvent>(_onAddressUpdated);
-    on<_KeysPressedEvent>(_onKeysPressed);
+    on<_KeyPressedEvent>(_onKeyPressed);
+    on<_MultipleKeysPressedEvent>(_onMultipleKeysPressed);
   }
 
   final _dio = Dio();
@@ -23,8 +24,15 @@ class SignalBloc extends Bloc<SignalEvent, SignalState> {
     emit(state.copyWith(address: event.address));
   }
 
-  Future<void> _onKeysPressed(
-    _KeysPressedEvent event,
+  Future<void> _onKeyPressed(
+    _KeyPressedEvent event,
+    Emitter<SignalState> emit,
+  ) async {
+    add(SignalEvent.multipleKeysPressed(keys: [event.key]));
+  }
+
+  Future<void> _onMultipleKeysPressed(
+    _MultipleKeysPressedEvent event,
     Emitter<SignalState> emit,
   ) async {
     try {
