@@ -5,4 +5,6 @@ class KeyboardEvent with _$KeyboardEvent {
   const factory KeyboardEvent.textEdited({
     required String text,
   }) = _TextEditedEvent;
+
+  const factory KeyboardEvent.shirtPressed() = _ShirtPressedEvent;
 }

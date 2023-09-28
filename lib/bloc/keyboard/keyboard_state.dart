@@ -4,5 +4,6 @@ part of 'keyboard_bloc.dart';
 class KeyboardState with _$KeyboardState {
   const factory KeyboardState({
     @Default('') String text,
+    @Default(ShiftState.off) shiftState,
   }) = _KeyboardState;
 }

@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$KeyboardEvent {
-  String get text => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String text) textEdited,
+    required TResult Function() shirtPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String text)? textEdited,
+    TResult? Function()? shirtPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String text)? textEdited,
+    TResult Function()? shirtPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TextEditedEvent value) textEdited,
+    required TResult Function(_ShirtPressedEvent value) shirtPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TextEditedEvent value)? textEdited,
+    TResult? Function(_ShirtPressedEvent value)? shirtPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TextEditedEvent value)? textEdited,
+    TResult Function(_ShirtPressedEvent value)? shirtPressed,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $KeyboardEventCopyWith<KeyboardEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +61,6 @@ abstract class $KeyboardEventCopyWith<$Res> {
   factory $KeyboardEventCopyWith(
           KeyboardEvent value, $Res Function(KeyboardEvent) then) =
       _$KeyboardEventCopyWithImpl<$Res, KeyboardEvent>;
-  @useResult
-  $Res call({String text});
 }
 
 /// @nodoc
@@ -73,28 +72,13 @@ class _$KeyboardEventCopyWithImpl<$Res, $Val extends KeyboardEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? text = null,
-  }) {
-    return _then(_value.copyWith(
-      text: null == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$TextEditedEventImplCopyWith<$Res>
-    implements $KeyboardEventCopyWith<$Res> {
+abstract class _$$TextEditedEventImplCopyWith<$Res> {
   factory _$$TextEditedEventImplCopyWith(_$TextEditedEventImpl value,
           $Res Function(_$TextEditedEventImpl) then) =
       __$$TextEditedEventImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String text});
 }
@@ -156,6 +140,7 @@ class _$TextEditedEventImpl implements _TextEditedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String text) textEdited,
+    required TResult Function() shirtPressed,
   }) {
     return textEdited(text);
   }
@@ -164,6 +149,7 @@ class _$TextEditedEventImpl implements _TextEditedEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String text)? textEdited,
+    TResult? Function()? shirtPressed,
   }) {
     return textEdited?.call(text);
   }
@@ -172,6 +158,7 @@ class _$TextEditedEventImpl implements _TextEditedEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String text)? textEdited,
+    TResult Function()? shirtPressed,
     required TResult orElse(),
   }) {
     if (textEdited != null) {
@@ -184,6 +171,7 @@ class _$TextEditedEventImpl implements _TextEditedEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TextEditedEvent value) textEdited,
+    required TResult Function(_ShirtPressedEvent value) shirtPressed,
   }) {
     return textEdited(this);
   }
@@ -192,6 +180,7 @@ class _$TextEditedEventImpl implements _TextEditedEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TextEditedEvent value)? textEdited,
+    TResult? Function(_ShirtPressedEvent value)? shirtPressed,
   }) {
     return textEdited?.call(this);
   }
@@ -200,6 +189,7 @@ class _$TextEditedEventImpl implements _TextEditedEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TextEditedEvent value)? textEdited,
+    TResult Function(_ShirtPressedEvent value)? shirtPressed,
     required TResult orElse(),
   }) {
     if (textEdited != null) {
@@ -213,17 +203,118 @@ abstract class _TextEditedEvent implements KeyboardEvent {
   const factory _TextEditedEvent({required final String text}) =
       _$TextEditedEventImpl;
 
-  @override
   String get text;
-  @override
   @JsonKey(ignore: true)
   _$$TextEditedEventImplCopyWith<_$TextEditedEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
+abstract class _$$ShirtPressedEventImplCopyWith<$Res> {
+  factory _$$ShirtPressedEventImplCopyWith(_$ShirtPressedEventImpl value,
+          $Res Function(_$ShirtPressedEventImpl) then) =
+      __$$ShirtPressedEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ShirtPressedEventImplCopyWithImpl<$Res>
+    extends _$KeyboardEventCopyWithImpl<$Res, _$ShirtPressedEventImpl>
+    implements _$$ShirtPressedEventImplCopyWith<$Res> {
+  __$$ShirtPressedEventImplCopyWithImpl(_$ShirtPressedEventImpl _value,
+      $Res Function(_$ShirtPressedEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ShirtPressedEventImpl implements _ShirtPressedEvent {
+  const _$ShirtPressedEventImpl();
+
+  @override
+  String toString() {
+    return 'KeyboardEvent.shirtPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ShirtPressedEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String text) textEdited,
+    required TResult Function() shirtPressed,
+  }) {
+    return shirtPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String text)? textEdited,
+    TResult? Function()? shirtPressed,
+  }) {
+    return shirtPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String text)? textEdited,
+    TResult Function()? shirtPressed,
+    required TResult orElse(),
+  }) {
+    if (shirtPressed != null) {
+      return shirtPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TextEditedEvent value) textEdited,
+    required TResult Function(_ShirtPressedEvent value) shirtPressed,
+  }) {
+    return shirtPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_TextEditedEvent value)? textEdited,
+    TResult? Function(_ShirtPressedEvent value)? shirtPressed,
+  }) {
+    return shirtPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TextEditedEvent value)? textEdited,
+    TResult Function(_ShirtPressedEvent value)? shirtPressed,
+    required TResult orElse(),
+  }) {
+    if (shirtPressed != null) {
+      return shirtPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ShirtPressedEvent implements KeyboardEvent {
+  const factory _ShirtPressedEvent() = _$ShirtPressedEventImpl;
+}
+
+/// @nodoc
 mixin _$KeyboardState {
   String get text => throw _privateConstructorUsedError;
+  dynamic get shiftState => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $KeyboardStateCopyWith<KeyboardState> get copyWith =>
@@ -236,7 +327,7 @@ abstract class $KeyboardStateCopyWith<$Res> {
           KeyboardState value, $Res Function(KeyboardState) then) =
       _$KeyboardStateCopyWithImpl<$Res, KeyboardState>;
   @useResult
-  $Res call({String text});
+  $Res call({String text, dynamic shiftState});
 }
 
 /// @nodoc
@@ -253,12 +344,17 @@ class _$KeyboardStateCopyWithImpl<$Res, $Val extends KeyboardState>
   @override
   $Res call({
     Object? text = null,
+    Object? shiftState = freezed,
   }) {
     return _then(_value.copyWith(
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
+      shiftState: freezed == shiftState
+          ? _value.shiftState
+          : shiftState // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -271,7 +367,7 @@ abstract class _$$KeyboardStateImplCopyWith<$Res>
       __$$KeyboardStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String text});
+  $Res call({String text, dynamic shiftState});
 }
 
 /// @nodoc
@@ -286,12 +382,14 @@ class __$$KeyboardStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? text = null,
+    Object? shiftState = freezed,
   }) {
     return _then(_$KeyboardStateImpl(
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
+      shiftState: freezed == shiftState ? _value.shiftState! : shiftState,
     ));
   }
 }
@@ -299,15 +397,18 @@ class __$$KeyboardStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$KeyboardStateImpl implements _KeyboardState {
-  const _$KeyboardStateImpl({this.text = ''});
+  const _$KeyboardStateImpl({this.text = '', this.shiftState = ShiftState.off});
 
   @override
   @JsonKey()
   final String text;
+  @override
+  @JsonKey()
+  final dynamic shiftState;
 
   @override
   String toString() {
-    return 'KeyboardState(text: $text)';
+    return 'KeyboardState(text: $text, shiftState: $shiftState)';
   }
 
   @override
@@ -315,11 +416,14 @@ class _$KeyboardStateImpl implements _KeyboardState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$KeyboardStateImpl &&
-            (identical(other.text, text) || other.text == text));
+            (identical(other.text, text) || other.text == text) &&
+            const DeepCollectionEquality()
+                .equals(other.shiftState, shiftState));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, text);
+  int get hashCode => Object.hash(
+      runtimeType, text, const DeepCollectionEquality().hash(shiftState));
 
   @JsonKey(ignore: true)
   @override
@@ -329,10 +433,13 @@ class _$KeyboardStateImpl implements _KeyboardState {
 }
 
 abstract class _KeyboardState implements KeyboardState {
-  const factory _KeyboardState({final String text}) = _$KeyboardStateImpl;
+  const factory _KeyboardState({final String text, final dynamic shiftState}) =
+      _$KeyboardStateImpl;
 
   @override
   String get text;
+  @override
+  dynamic get shiftState;
   @override
   @JsonKey(ignore: true)
   _$$KeyboardStateImplCopyWith<_$KeyboardStateImpl> get copyWith =>
