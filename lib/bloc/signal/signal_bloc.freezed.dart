@@ -21,6 +21,7 @@ mixin _$SignalEvent {
     required TResult Function(String address) addressUpdated,
     required TResult Function(String key) keyPressed,
     required TResult Function(List<String> keys) multipleKeysPressed,
+    required TResult Function(double dx, double dy) mouseMoved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$SignalEvent {
     TResult? Function(String address)? addressUpdated,
     TResult? Function(String key)? keyPressed,
     TResult? Function(List<String> keys)? multipleKeysPressed,
+    TResult? Function(double dx, double dy)? mouseMoved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$SignalEvent {
     TResult Function(String address)? addressUpdated,
     TResult Function(String key)? keyPressed,
     TResult Function(List<String> keys)? multipleKeysPressed,
+    TResult Function(double dx, double dy)? mouseMoved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +47,7 @@ mixin _$SignalEvent {
     required TResult Function(_KeyPressedEvent value) keyPressed,
     required TResult Function(_MultipleKeysPressedEvent value)
         multipleKeysPressed,
+    required TResult Function(_MouseMovedEvent value) mouseMoved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,7 @@ mixin _$SignalEvent {
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult? Function(_KeyPressedEvent value)? keyPressed,
     TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    TResult? Function(_MouseMovedEvent value)? mouseMoved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$SignalEvent {
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult Function(_KeyPressedEvent value)? keyPressed,
     TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    TResult Function(_MouseMovedEvent value)? mouseMoved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,6 +155,7 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
     required TResult Function(String address) addressUpdated,
     required TResult Function(String key) keyPressed,
     required TResult Function(List<String> keys) multipleKeysPressed,
+    required TResult Function(double dx, double dy) mouseMoved,
   }) {
     return addressUpdated(address);
   }
@@ -159,6 +166,7 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
     TResult? Function(String address)? addressUpdated,
     TResult? Function(String key)? keyPressed,
     TResult? Function(List<String> keys)? multipleKeysPressed,
+    TResult? Function(double dx, double dy)? mouseMoved,
   }) {
     return addressUpdated?.call(address);
   }
@@ -169,6 +177,7 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
     TResult Function(String address)? addressUpdated,
     TResult Function(String key)? keyPressed,
     TResult Function(List<String> keys)? multipleKeysPressed,
+    TResult Function(double dx, double dy)? mouseMoved,
     required TResult orElse(),
   }) {
     if (addressUpdated != null) {
@@ -184,6 +193,7 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
     required TResult Function(_KeyPressedEvent value) keyPressed,
     required TResult Function(_MultipleKeysPressedEvent value)
         multipleKeysPressed,
+    required TResult Function(_MouseMovedEvent value) mouseMoved,
   }) {
     return addressUpdated(this);
   }
@@ -194,6 +204,7 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult? Function(_KeyPressedEvent value)? keyPressed,
     TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    TResult? Function(_MouseMovedEvent value)? mouseMoved,
   }) {
     return addressUpdated?.call(this);
   }
@@ -204,6 +215,7 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult Function(_KeyPressedEvent value)? keyPressed,
     TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    TResult Function(_MouseMovedEvent value)? mouseMoved,
     required TResult orElse(),
   }) {
     if (addressUpdated != null) {
@@ -291,6 +303,7 @@ class _$KeyPressedEventImpl implements _KeyPressedEvent {
     required TResult Function(String address) addressUpdated,
     required TResult Function(String key) keyPressed,
     required TResult Function(List<String> keys) multipleKeysPressed,
+    required TResult Function(double dx, double dy) mouseMoved,
   }) {
     return keyPressed(key);
   }
@@ -301,6 +314,7 @@ class _$KeyPressedEventImpl implements _KeyPressedEvent {
     TResult? Function(String address)? addressUpdated,
     TResult? Function(String key)? keyPressed,
     TResult? Function(List<String> keys)? multipleKeysPressed,
+    TResult? Function(double dx, double dy)? mouseMoved,
   }) {
     return keyPressed?.call(key);
   }
@@ -311,6 +325,7 @@ class _$KeyPressedEventImpl implements _KeyPressedEvent {
     TResult Function(String address)? addressUpdated,
     TResult Function(String key)? keyPressed,
     TResult Function(List<String> keys)? multipleKeysPressed,
+    TResult Function(double dx, double dy)? mouseMoved,
     required TResult orElse(),
   }) {
     if (keyPressed != null) {
@@ -326,6 +341,7 @@ class _$KeyPressedEventImpl implements _KeyPressedEvent {
     required TResult Function(_KeyPressedEvent value) keyPressed,
     required TResult Function(_MultipleKeysPressedEvent value)
         multipleKeysPressed,
+    required TResult Function(_MouseMovedEvent value) mouseMoved,
   }) {
     return keyPressed(this);
   }
@@ -336,6 +352,7 @@ class _$KeyPressedEventImpl implements _KeyPressedEvent {
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult? Function(_KeyPressedEvent value)? keyPressed,
     TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    TResult? Function(_MouseMovedEvent value)? mouseMoved,
   }) {
     return keyPressed?.call(this);
   }
@@ -346,6 +363,7 @@ class _$KeyPressedEventImpl implements _KeyPressedEvent {
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult Function(_KeyPressedEvent value)? keyPressed,
     TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    TResult Function(_MouseMovedEvent value)? mouseMoved,
     required TResult orElse(),
   }) {
     if (keyPressed != null) {
@@ -442,6 +460,7 @@ class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
     required TResult Function(String address) addressUpdated,
     required TResult Function(String key) keyPressed,
     required TResult Function(List<String> keys) multipleKeysPressed,
+    required TResult Function(double dx, double dy) mouseMoved,
   }) {
     return multipleKeysPressed(keys);
   }
@@ -452,6 +471,7 @@ class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
     TResult? Function(String address)? addressUpdated,
     TResult? Function(String key)? keyPressed,
     TResult? Function(List<String> keys)? multipleKeysPressed,
+    TResult? Function(double dx, double dy)? mouseMoved,
   }) {
     return multipleKeysPressed?.call(keys);
   }
@@ -462,6 +482,7 @@ class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
     TResult Function(String address)? addressUpdated,
     TResult Function(String key)? keyPressed,
     TResult Function(List<String> keys)? multipleKeysPressed,
+    TResult Function(double dx, double dy)? mouseMoved,
     required TResult orElse(),
   }) {
     if (multipleKeysPressed != null) {
@@ -477,6 +498,7 @@ class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
     required TResult Function(_KeyPressedEvent value) keyPressed,
     required TResult Function(_MultipleKeysPressedEvent value)
         multipleKeysPressed,
+    required TResult Function(_MouseMovedEvent value) mouseMoved,
   }) {
     return multipleKeysPressed(this);
   }
@@ -487,6 +509,7 @@ class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult? Function(_KeyPressedEvent value)? keyPressed,
     TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    TResult? Function(_MouseMovedEvent value)? mouseMoved,
   }) {
     return multipleKeysPressed?.call(this);
   }
@@ -497,6 +520,7 @@ class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult Function(_KeyPressedEvent value)? keyPressed,
     TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    TResult Function(_MouseMovedEvent value)? mouseMoved,
     required TResult orElse(),
   }) {
     if (multipleKeysPressed != null) {
@@ -514,6 +538,164 @@ abstract class _MultipleKeysPressedEvent implements SignalEvent {
   @JsonKey(ignore: true)
   _$$MultipleKeysPressedEventImplCopyWith<_$MultipleKeysPressedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MouseMovedEventImplCopyWith<$Res> {
+  factory _$$MouseMovedEventImplCopyWith(_$MouseMovedEventImpl value,
+          $Res Function(_$MouseMovedEventImpl) then) =
+      __$$MouseMovedEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({double dx, double dy});
+}
+
+/// @nodoc
+class __$$MouseMovedEventImplCopyWithImpl<$Res>
+    extends _$SignalEventCopyWithImpl<$Res, _$MouseMovedEventImpl>
+    implements _$$MouseMovedEventImplCopyWith<$Res> {
+  __$$MouseMovedEventImplCopyWithImpl(
+      _$MouseMovedEventImpl _value, $Res Function(_$MouseMovedEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dx = null,
+    Object? dy = null,
+  }) {
+    return _then(_$MouseMovedEventImpl(
+      dx: null == dx
+          ? _value.dx
+          : dx // ignore: cast_nullable_to_non_nullable
+              as double,
+      dy: null == dy
+          ? _value.dy
+          : dy // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MouseMovedEventImpl implements _MouseMovedEvent {
+  const _$MouseMovedEventImpl({required this.dx, required this.dy});
+
+  @override
+  final double dx;
+  @override
+  final double dy;
+
+  @override
+  String toString() {
+    return 'SignalEvent.mouseMoved(dx: $dx, dy: $dy)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MouseMovedEventImpl &&
+            (identical(other.dx, dx) || other.dx == dx) &&
+            (identical(other.dy, dy) || other.dy == dy));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, dx, dy);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MouseMovedEventImplCopyWith<_$MouseMovedEventImpl> get copyWith =>
+      __$$MouseMovedEventImplCopyWithImpl<_$MouseMovedEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String address) addressUpdated,
+    required TResult Function(String key) keyPressed,
+    required TResult Function(List<String> keys) multipleKeysPressed,
+    required TResult Function(double dx, double dy) mouseMoved,
+  }) {
+    return mouseMoved(dx, dy);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String address)? addressUpdated,
+    TResult? Function(String key)? keyPressed,
+    TResult? Function(List<String> keys)? multipleKeysPressed,
+    TResult? Function(double dx, double dy)? mouseMoved,
+  }) {
+    return mouseMoved?.call(dx, dy);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String address)? addressUpdated,
+    TResult Function(String key)? keyPressed,
+    TResult Function(List<String> keys)? multipleKeysPressed,
+    TResult Function(double dx, double dy)? mouseMoved,
+    required TResult orElse(),
+  }) {
+    if (mouseMoved != null) {
+      return mouseMoved(dx, dy);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AddressUpdatedEvent value) addressUpdated,
+    required TResult Function(_KeyPressedEvent value) keyPressed,
+    required TResult Function(_MultipleKeysPressedEvent value)
+        multipleKeysPressed,
+    required TResult Function(_MouseMovedEvent value) mouseMoved,
+  }) {
+    return mouseMoved(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
+    TResult? Function(_KeyPressedEvent value)? keyPressed,
+    TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    TResult? Function(_MouseMovedEvent value)? mouseMoved,
+  }) {
+    return mouseMoved?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AddressUpdatedEvent value)? addressUpdated,
+    TResult Function(_KeyPressedEvent value)? keyPressed,
+    TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    TResult Function(_MouseMovedEvent value)? mouseMoved,
+    required TResult orElse(),
+  }) {
+    if (mouseMoved != null) {
+      return mouseMoved(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MouseMovedEvent implements SignalEvent {
+  const factory _MouseMovedEvent(
+      {required final double dx,
+      required final double dy}) = _$MouseMovedEventImpl;
+
+  double get dx;
+  double get dy;
+  @JsonKey(ignore: true)
+  _$$MouseMovedEventImplCopyWith<_$MouseMovedEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

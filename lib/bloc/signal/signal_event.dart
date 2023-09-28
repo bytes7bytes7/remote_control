@@ -13,4 +13,9 @@ class SignalEvent with _$SignalEvent {
   const factory SignalEvent.multipleKeysPressed({
     required List<String> keys,
   }) = _MultipleKeysPressedEvent;
+
+  const factory SignalEvent.mouseMoved({
+    required double dx,
+    required double dy,
+  }) = _MouseMovedEvent;
 }

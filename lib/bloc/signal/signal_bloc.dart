@@ -15,6 +15,7 @@ class SignalBloc extends Bloc<SignalEvent, SignalState> {
     on<_AddressUpdatedEvent>(_onAddressUpdated);
     on<_KeyPressedEvent>(_onKeyPressed);
     on<_MultipleKeysPressedEvent>(_onMultipleKeysPressed);
+    on<_MouseMovedEvent>(_onMouseMoved);
   }
 
   final _dio = Dio(
@@ -43,11 +44,9 @@ class SignalBloc extends Bloc<SignalEvent, SignalState> {
     _MultipleKeysPressedEvent event,
     Emitter<SignalState> emit,
   ) async {
-    final url = 'http://${state.address}';
-
     try {
       await _dio.post(
-        url,
+        _getUrl(),
         data: {
           'keys': event.keys,
         },
@@ -57,5 +56,34 @@ class SignalBloc extends Bloc<SignalEvent, SignalState> {
     } finally {
       emit(state.copyWith(error: ''));
     }
+  }
+
+  Future<void> _onMouseMoved(
+    _MouseMovedEvent event,
+    Emitter<SignalState> emit,
+  ) async {
+    try {
+      await _dio.post(
+        _getUrl(),
+        data: {
+          'mouse': {
+            'dx': event.dx,
+            'dy': event.dy,
+          },
+        },
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(
+          error: 'Ошибка при отправке: ${event.dx}, ${event.dy}',
+        ),
+      );
+    } finally {
+      emit(state.copyWith(error: ''));
+    }
+  }
+
+  String _getUrl() {
+    return 'http://${state.address}';
   }
 }

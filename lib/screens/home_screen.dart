@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/signal/signal_bloc.dart';
 import '../widgets/keyboard_controls.dart';
+import '../widgets/mouse_controls.dart';
 import '../widgets/player_controls.dart';
 import '../widgets/shortcut_controls.dart';
 
@@ -41,7 +42,7 @@ class _BodyState extends State<_Body> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -97,6 +98,9 @@ class _BodyState extends State<_Body> with TickerProviderStateMixin {
                   text: 'Keyboard',
                 ),
                 Tab(
+                  text: 'Mouse',
+                ),
+                Tab(
                   text: 'Shortcuts',
                 ),
               ],
@@ -104,9 +108,11 @@ class _BodyState extends State<_Body> with TickerProviderStateMixin {
             Expanded(
               child: TabBarView(
                 controller: _tabController,
+                physics: const NeverScrollableScrollPhysics(),
                 children: const [
                   PlayerControls(),
                   KeyboardControls(),
+                  MouseControls(),
                   ShortcutControls(),
                 ],
               ),
