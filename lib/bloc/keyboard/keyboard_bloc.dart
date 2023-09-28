@@ -22,17 +22,10 @@ class KeyboardBloc extends Bloc<KeyboardEvent, KeyboardState> {
     _TextEditedEvent event,
     Emitter<KeyboardState> emit,
   ) {
-    if (state.text.contains(event.text)) {
-
-    }
-
-    late final String lastKey;
-    if (event.text.isNotEmpty) {
-      lastKey = event.text[event.text.length - 1];
-    } else {
-      lastKey = '';
-    }
-
-    _signalBloc.add(SignalEvent.keyPressed(key: lastKey));
+    _signalBloc.add(SignalEvent.keyPressed(key: event.text));
   }
+}
+
+class KeyboardKeys {
+  static const backspace = 'backspace';
 }
