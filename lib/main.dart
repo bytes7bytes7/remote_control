@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -166,10 +166,9 @@ class _HomeState extends State<Home> {
 
 class _Button extends StatelessWidget {
   const _Button({
-    Key? key,
     required this.onPressed,
     required this.child,
-  }) : super(key: key);
+  });
 
   final VoidCallback onPressed;
   final Widget child;
