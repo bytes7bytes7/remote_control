@@ -1,14 +1,4 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-
-class ControlKeys {
-  static const volumeUp = 'volumeup';
-  static const volumeDown = 'volumedown';
-  static const volumeMute = 'volumemute';
-  static const playPause = 'playpause';
-  static const nextTrack = 'nexttrack';
-  static const prevTrack = 'prevtrack';
-}
 
 void main() {
   runApp(const MyApp());
@@ -30,24 +20,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({super.key});
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  final _address = TextEditingController();
-  final _dio = Dio();
-  var _error = '';
-
-  @override
-  void dispose() {
-    _address.dispose();
-
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -144,23 +118,6 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
-  }
-
-  Future<void> _send(List<String> keys) async {
-    final url = 'http://${_address.text}/';
-
-    try {
-      await _dio.post(
-        url,
-        data: {
-          'keys': keys,
-        },
-      );
-
-      _error = '';
-    } catch (e) {
-      _error = 'Ошибка';
-    }
   }
 }
 

@@ -47,3 +47,12 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     Emitter<PlayerState> emit,
   ) {}
 }
+
+class _ControlKeys {
+  static const volumeUp = 'volumeup';
+  static const volumeDown = 'volumedown';
+  static const volumeMute = 'volumemute';
+  static const playPause = 'playpause';
+  static const nextTrack = 'nexttrack';
+  static const prevTrack = 'prevtrack';
+}

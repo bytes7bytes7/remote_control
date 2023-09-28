@@ -862,21 +862,13 @@ abstract class _NextPressedEvent implements PlayerEvent {
 }
 
 /// @nodoc
-mixin _$PlayerState {
-  String get error => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $PlayerStateCopyWith<PlayerState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+mixin _$PlayerState {}
 
 /// @nodoc
 abstract class $PlayerStateCopyWith<$Res> {
   factory $PlayerStateCopyWith(
           PlayerState value, $Res Function(PlayerState) then) =
       _$PlayerStateCopyWithImpl<$Res, PlayerState>;
-  @useResult
-  $Res call({String error});
 }
 
 /// @nodoc
@@ -888,30 +880,13 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_value.copyWith(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$PlayerStateImplCopyWith<$Res>
-    implements $PlayerStateCopyWith<$Res> {
+abstract class _$$PlayerStateImplCopyWith<$Res> {
   factory _$$PlayerStateImplCopyWith(
           _$PlayerStateImpl value, $Res Function(_$PlayerStateImpl) then) =
       __$$PlayerStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String error});
 }
 
 /// @nodoc
@@ -921,60 +896,28 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
   __$$PlayerStateImplCopyWithImpl(
       _$PlayerStateImpl _value, $Res Function(_$PlayerStateImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$PlayerStateImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$PlayerStateImpl implements _PlayerState {
-  const _$PlayerStateImpl({this.error = ''});
-
-  @override
-  @JsonKey()
-  final String error;
+  const _$PlayerStateImpl();
 
   @override
   String toString() {
-    return 'PlayerState(error: $error)';
+    return 'PlayerState()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PlayerStateImpl &&
-            (identical(other.error, error) || other.error == error));
+        (other.runtimeType == runtimeType && other is _$PlayerStateImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PlayerStateImplCopyWith<_$PlayerStateImpl> get copyWith =>
-      __$$PlayerStateImplCopyWithImpl<_$PlayerStateImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 }
 
 abstract class _PlayerState implements PlayerState {
-  const factory _PlayerState({final String error}) = _$PlayerStateImpl;
-
-  @override
-  String get error;
-  @override
-  @JsonKey(ignore: true)
-  _$$PlayerStateImplCopyWith<_$PlayerStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _PlayerState() = _$PlayerStateImpl;
 }
