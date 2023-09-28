@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/signal/signal_bloc.dart';
+import '../widgets/keyboard_controls.dart';
 import '../widgets/player_controls.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -87,8 +88,12 @@ class _BodyState extends State<_Body> with TickerProviderStateMixin {
             TabBar.secondary(
               controller: _tabController,
               tabs: const [
-                Tab(text: 'Player'),
-                Tab(text: 'Specifications'),
+                Tab(
+                  text: 'Player',
+                ),
+                Tab(
+                  text: 'Keyboard',
+                ),
               ],
             ),
             Expanded(
@@ -96,12 +101,7 @@ class _BodyState extends State<_Body> with TickerProviderStateMixin {
                 controller: _tabController,
                 children: const [
                   PlayerControls(),
-                  Card(
-                    margin: EdgeInsets.all(16.0),
-                    child: Center(
-                      child: Text('Specifications tab'),
-                    ),
-                  ),
+                  KeyboardControls(),
                 ],
               ),
             ),
