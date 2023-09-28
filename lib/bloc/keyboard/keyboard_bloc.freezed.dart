@@ -20,18 +20,21 @@ mixin _$KeyboardEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String text) textEdited,
     required TResult Function() shirtPressed,
+    required TResult Function() languagePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String text)? textEdited,
     TResult? Function()? shirtPressed,
+    TResult? Function()? languagePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String text)? textEdited,
     TResult Function()? shirtPressed,
+    TResult Function()? languagePressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$KeyboardEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_TextEditedEvent value) textEdited,
     required TResult Function(_ShirtPressedEvent value) shirtPressed,
+    required TResult Function(_LanguagePressedEvent value) languagePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TextEditedEvent value)? textEdited,
     TResult? Function(_ShirtPressedEvent value)? shirtPressed,
+    TResult? Function(_LanguagePressedEvent value)? languagePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TextEditedEvent value)? textEdited,
     TResult Function(_ShirtPressedEvent value)? shirtPressed,
+    TResult Function(_LanguagePressedEvent value)? languagePressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +147,7 @@ class _$TextEditedEventImpl implements _TextEditedEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String text) textEdited,
     required TResult Function() shirtPressed,
+    required TResult Function() languagePressed,
   }) {
     return textEdited(text);
   }
@@ -150,6 +157,7 @@ class _$TextEditedEventImpl implements _TextEditedEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String text)? textEdited,
     TResult? Function()? shirtPressed,
+    TResult? Function()? languagePressed,
   }) {
     return textEdited?.call(text);
   }
@@ -159,6 +167,7 @@ class _$TextEditedEventImpl implements _TextEditedEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String text)? textEdited,
     TResult Function()? shirtPressed,
+    TResult Function()? languagePressed,
     required TResult orElse(),
   }) {
     if (textEdited != null) {
@@ -172,6 +181,7 @@ class _$TextEditedEventImpl implements _TextEditedEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_TextEditedEvent value) textEdited,
     required TResult Function(_ShirtPressedEvent value) shirtPressed,
+    required TResult Function(_LanguagePressedEvent value) languagePressed,
   }) {
     return textEdited(this);
   }
@@ -181,6 +191,7 @@ class _$TextEditedEventImpl implements _TextEditedEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TextEditedEvent value)? textEdited,
     TResult? Function(_ShirtPressedEvent value)? shirtPressed,
+    TResult? Function(_LanguagePressedEvent value)? languagePressed,
   }) {
     return textEdited?.call(this);
   }
@@ -190,6 +201,7 @@ class _$TextEditedEventImpl implements _TextEditedEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TextEditedEvent value)? textEdited,
     TResult Function(_ShirtPressedEvent value)? shirtPressed,
+    TResult Function(_LanguagePressedEvent value)? languagePressed,
     required TResult orElse(),
   }) {
     if (textEdited != null) {
@@ -249,6 +261,7 @@ class _$ShirtPressedEventImpl implements _ShirtPressedEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String text) textEdited,
     required TResult Function() shirtPressed,
+    required TResult Function() languagePressed,
   }) {
     return shirtPressed();
   }
@@ -258,6 +271,7 @@ class _$ShirtPressedEventImpl implements _ShirtPressedEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String text)? textEdited,
     TResult? Function()? shirtPressed,
+    TResult? Function()? languagePressed,
   }) {
     return shirtPressed?.call();
   }
@@ -267,6 +281,7 @@ class _$ShirtPressedEventImpl implements _ShirtPressedEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String text)? textEdited,
     TResult Function()? shirtPressed,
+    TResult Function()? languagePressed,
     required TResult orElse(),
   }) {
     if (shirtPressed != null) {
@@ -280,6 +295,7 @@ class _$ShirtPressedEventImpl implements _ShirtPressedEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_TextEditedEvent value) textEdited,
     required TResult Function(_ShirtPressedEvent value) shirtPressed,
+    required TResult Function(_LanguagePressedEvent value) languagePressed,
   }) {
     return shirtPressed(this);
   }
@@ -289,6 +305,7 @@ class _$ShirtPressedEventImpl implements _ShirtPressedEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TextEditedEvent value)? textEdited,
     TResult? Function(_ShirtPressedEvent value)? shirtPressed,
+    TResult? Function(_LanguagePressedEvent value)? languagePressed,
   }) {
     return shirtPressed?.call(this);
   }
@@ -298,6 +315,7 @@ class _$ShirtPressedEventImpl implements _ShirtPressedEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TextEditedEvent value)? textEdited,
     TResult Function(_ShirtPressedEvent value)? shirtPressed,
+    TResult Function(_LanguagePressedEvent value)? languagePressed,
     required TResult orElse(),
   }) {
     if (shirtPressed != null) {
@@ -312,9 +330,120 @@ abstract class _ShirtPressedEvent implements KeyboardEvent {
 }
 
 /// @nodoc
+abstract class _$$LanguagePressedEventImplCopyWith<$Res> {
+  factory _$$LanguagePressedEventImplCopyWith(_$LanguagePressedEventImpl value,
+          $Res Function(_$LanguagePressedEventImpl) then) =
+      __$$LanguagePressedEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LanguagePressedEventImplCopyWithImpl<$Res>
+    extends _$KeyboardEventCopyWithImpl<$Res, _$LanguagePressedEventImpl>
+    implements _$$LanguagePressedEventImplCopyWith<$Res> {
+  __$$LanguagePressedEventImplCopyWithImpl(_$LanguagePressedEventImpl _value,
+      $Res Function(_$LanguagePressedEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LanguagePressedEventImpl implements _LanguagePressedEvent {
+  const _$LanguagePressedEventImpl();
+
+  @override
+  String toString() {
+    return 'KeyboardEvent.languagePressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LanguagePressedEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String text) textEdited,
+    required TResult Function() shirtPressed,
+    required TResult Function() languagePressed,
+  }) {
+    return languagePressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String text)? textEdited,
+    TResult? Function()? shirtPressed,
+    TResult? Function()? languagePressed,
+  }) {
+    return languagePressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String text)? textEdited,
+    TResult Function()? shirtPressed,
+    TResult Function()? languagePressed,
+    required TResult orElse(),
+  }) {
+    if (languagePressed != null) {
+      return languagePressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TextEditedEvent value) textEdited,
+    required TResult Function(_ShirtPressedEvent value) shirtPressed,
+    required TResult Function(_LanguagePressedEvent value) languagePressed,
+  }) {
+    return languagePressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_TextEditedEvent value)? textEdited,
+    TResult? Function(_ShirtPressedEvent value)? shirtPressed,
+    TResult? Function(_LanguagePressedEvent value)? languagePressed,
+  }) {
+    return languagePressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TextEditedEvent value)? textEdited,
+    TResult Function(_ShirtPressedEvent value)? shirtPressed,
+    TResult Function(_LanguagePressedEvent value)? languagePressed,
+    required TResult orElse(),
+  }) {
+    if (languagePressed != null) {
+      return languagePressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LanguagePressedEvent implements KeyboardEvent {
+  const factory _LanguagePressedEvent() = _$LanguagePressedEventImpl;
+}
+
+/// @nodoc
 mixin _$KeyboardState {
   String get text => throw _privateConstructorUsedError;
   dynamic get shiftState => throw _privateConstructorUsedError;
+  KeyboardLanguage get language => throw _privateConstructorUsedError;
+  List<KeyboardLanguage> get allLanguages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $KeyboardStateCopyWith<KeyboardState> get copyWith =>
@@ -327,7 +456,11 @@ abstract class $KeyboardStateCopyWith<$Res> {
           KeyboardState value, $Res Function(KeyboardState) then) =
       _$KeyboardStateCopyWithImpl<$Res, KeyboardState>;
   @useResult
-  $Res call({String text, dynamic shiftState});
+  $Res call(
+      {String text,
+      dynamic shiftState,
+      KeyboardLanguage language,
+      List<KeyboardLanguage> allLanguages});
 }
 
 /// @nodoc
@@ -345,6 +478,8 @@ class _$KeyboardStateCopyWithImpl<$Res, $Val extends KeyboardState>
   $Res call({
     Object? text = null,
     Object? shiftState = freezed,
+    Object? language = null,
+    Object? allLanguages = null,
   }) {
     return _then(_value.copyWith(
       text: null == text
@@ -355,6 +490,14 @@ class _$KeyboardStateCopyWithImpl<$Res, $Val extends KeyboardState>
           ? _value.shiftState
           : shiftState // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      language: null == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as KeyboardLanguage,
+      allLanguages: null == allLanguages
+          ? _value.allLanguages
+          : allLanguages // ignore: cast_nullable_to_non_nullable
+              as List<KeyboardLanguage>,
     ) as $Val);
   }
 }
@@ -367,7 +510,11 @@ abstract class _$$KeyboardStateImplCopyWith<$Res>
       __$$KeyboardStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String text, dynamic shiftState});
+  $Res call(
+      {String text,
+      dynamic shiftState,
+      KeyboardLanguage language,
+      List<KeyboardLanguage> allLanguages});
 }
 
 /// @nodoc
@@ -383,6 +530,8 @@ class __$$KeyboardStateImplCopyWithImpl<$Res>
   $Res call({
     Object? text = null,
     Object? shiftState = freezed,
+    Object? language = null,
+    Object? allLanguages = null,
   }) {
     return _then(_$KeyboardStateImpl(
       text: null == text
@@ -390,6 +539,14 @@ class __$$KeyboardStateImplCopyWithImpl<$Res>
           : text // ignore: cast_nullable_to_non_nullable
               as String,
       shiftState: freezed == shiftState ? _value.shiftState! : shiftState,
+      language: null == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as KeyboardLanguage,
+      allLanguages: null == allLanguages
+          ? _value._allLanguages
+          : allLanguages // ignore: cast_nullable_to_non_nullable
+              as List<KeyboardLanguage>,
     ));
   }
 }
@@ -397,7 +554,15 @@ class __$$KeyboardStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$KeyboardStateImpl implements _KeyboardState {
-  const _$KeyboardStateImpl({this.text = '', this.shiftState = ShiftState.off});
+  const _$KeyboardStateImpl(
+      {this.text = '',
+      this.shiftState = ShiftState.off,
+      this.language = const EnglishKeyboardLanguage(),
+      final List<KeyboardLanguage> allLanguages = const [
+        EnglishKeyboardLanguage(),
+        RussianKeyboardLanguage()
+      ]})
+      : _allLanguages = allLanguages;
 
   @override
   @JsonKey()
@@ -405,10 +570,21 @@ class _$KeyboardStateImpl implements _KeyboardState {
   @override
   @JsonKey()
   final dynamic shiftState;
+  @override
+  @JsonKey()
+  final KeyboardLanguage language;
+  final List<KeyboardLanguage> _allLanguages;
+  @override
+  @JsonKey()
+  List<KeyboardLanguage> get allLanguages {
+    if (_allLanguages is EqualUnmodifiableListView) return _allLanguages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_allLanguages);
+  }
 
   @override
   String toString() {
-    return 'KeyboardState(text: $text, shiftState: $shiftState)';
+    return 'KeyboardState(text: $text, shiftState: $shiftState, language: $language, allLanguages: $allLanguages)';
   }
 
   @override
@@ -418,12 +594,20 @@ class _$KeyboardStateImpl implements _KeyboardState {
             other is _$KeyboardStateImpl &&
             (identical(other.text, text) || other.text == text) &&
             const DeepCollectionEquality()
-                .equals(other.shiftState, shiftState));
+                .equals(other.shiftState, shiftState) &&
+            (identical(other.language, language) ||
+                other.language == language) &&
+            const DeepCollectionEquality()
+                .equals(other._allLanguages, _allLanguages));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, text, const DeepCollectionEquality().hash(shiftState));
+      runtimeType,
+      text,
+      const DeepCollectionEquality().hash(shiftState),
+      language,
+      const DeepCollectionEquality().hash(_allLanguages));
 
   @JsonKey(ignore: true)
   @override
@@ -433,13 +617,20 @@ class _$KeyboardStateImpl implements _KeyboardState {
 }
 
 abstract class _KeyboardState implements KeyboardState {
-  const factory _KeyboardState({final String text, final dynamic shiftState}) =
-      _$KeyboardStateImpl;
+  const factory _KeyboardState(
+      {final String text,
+      final dynamic shiftState,
+      final KeyboardLanguage language,
+      final List<KeyboardLanguage> allLanguages}) = _$KeyboardStateImpl;
 
   @override
   String get text;
   @override
   dynamic get shiftState;
+  @override
+  KeyboardLanguage get language;
+  @override
+  List<KeyboardLanguage> get allLanguages;
   @override
   @JsonKey(ignore: true)
   _$$KeyboardStateImplCopyWith<_$KeyboardStateImpl> get copyWith =>

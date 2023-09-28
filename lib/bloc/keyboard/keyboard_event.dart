@@ -7,4 +7,6 @@ class KeyboardEvent with _$KeyboardEvent {
   }) = _TextEditedEvent;
 
   const factory KeyboardEvent.shirtPressed() = _ShirtPressedEvent;
+
+  const factory KeyboardEvent.languagePressed() = _LanguagePressedEvent;
 }

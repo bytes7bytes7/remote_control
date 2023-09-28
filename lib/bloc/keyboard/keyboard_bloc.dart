@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../signal/signal_bloc.dart';
+import 'keyboard_language.dart';
 
 part 'keyboard_event.dart';
 
@@ -21,6 +22,7 @@ class KeyboardBloc extends Bloc<KeyboardEvent, KeyboardState> {
   ) : super(const KeyboardState()) {
     on<_TextEditedEvent>(_onTextEdited);
     on<_ShirtPressedEvent>(_onShiftPressed);
+    on<_LanguagePressedEvent>(_onLanguagePressed);
   }
 
   final SignalBloc _signalBloc;
@@ -57,5 +59,15 @@ class KeyboardBloc extends Bloc<KeyboardEvent, KeyboardState> {
     }
 
     emit(state.copyWith(shiftState: newShiftState));
+  }
+
+  void _onLanguagePressed(
+    _LanguagePressedEvent event,
+    Emitter<KeyboardState> emit,
+  ) {
+    final index = state.allLanguages.indexWhere((e) => e.code == state.language.code);
+    final next = state.allLanguages[(index + 1) % state.allLanguages.length];
+
+    emit(state.copyWith(language: next));
   }
 }
