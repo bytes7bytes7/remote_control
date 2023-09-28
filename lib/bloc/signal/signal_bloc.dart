@@ -8,6 +8,8 @@ part 'signal_state.dart';
 
 part 'signal_bloc.freezed.dart';
 
+const _timeout = Duration(seconds: 5);
+
 class SignalBloc extends Bloc<SignalEvent, SignalState> {
   SignalBloc() : super(const SignalState()) {
     on<_AddressUpdatedEvent>(_onAddressUpdated);
@@ -15,7 +17,13 @@ class SignalBloc extends Bloc<SignalEvent, SignalState> {
     on<_MultipleKeysPressedEvent>(_onMultipleKeysPressed);
   }
 
-  final _dio = Dio();
+  final _dio = Dio(
+    BaseOptions(
+      connectTimeout: _timeout,
+      receiveTimeout: _timeout,
+      sendTimeout: _timeout,
+    ),
+  );
 
   void _onAddressUpdated(
     _AddressUpdatedEvent event,
