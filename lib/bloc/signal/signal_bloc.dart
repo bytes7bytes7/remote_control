@@ -43,9 +43,11 @@ class SignalBloc extends Bloc<SignalEvent, SignalState> {
     _MultipleKeysPressedEvent event,
     Emitter<SignalState> emit,
   ) async {
+    final url = 'http://${state.address}';
+
     try {
       await _dio.post(
-        state.address,
+        url,
         data: {
           'keys': event.keys,
         },
