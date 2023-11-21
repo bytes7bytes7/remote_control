@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'signal_event.dart';
 
@@ -9,9 +10,11 @@ part 'signal_state.dart';
 part 'signal_bloc.freezed.dart';
 
 const _timeout = Duration(seconds: 5);
+const _addressKey = 'address';
 
 class SignalBloc extends Bloc<SignalEvent, SignalState> {
   SignalBloc() : super(const SignalState()) {
+    on<_InitEvent>(_init);
     on<_AddressUpdatedEvent>(_onAddressUpdated);
     on<_KeyPressedEvent>(_onKeyPressed);
     on<_MultipleKeysPressedEvent>(_onMultipleKeysPressed);
@@ -27,11 +30,40 @@ class SignalBloc extends Bloc<SignalEvent, SignalState> {
     ),
   );
 
-  void _onAddressUpdated(
+  Future<SharedPreferences> get _sharedPrefs => SharedPreferences.getInstance();
+
+  Future<void> _init(
+    _InitEvent event,
+    Emitter<SignalState> emit,
+  ) async {
+    try {
+      final prefs = await _sharedPrefs;
+      final address = prefs.getString(_addressKey);
+
+      if (address != null) {
+        emit(state.copyWith(address: address));
+      }
+    } catch (e) {
+      emit(state.copyWith(error: 'Не удалось загрузить адрес'));
+    } finally {
+      emit(state.copyWith(error: ''));
+    }
+  }
+
+  Future<void> _onAddressUpdated(
     _AddressUpdatedEvent event,
     Emitter<SignalState> emit,
-  ) {
+  ) async {
     emit(state.copyWith(address: event.address));
+
+    try {
+      final prefs = await _sharedPrefs;
+      await prefs.setString(_addressKey, event.address);
+    } catch (e) {
+      emit(state.copyWith(error: 'Не удалось сохранить адрес'));
+    } finally {
+      emit(state.copyWith(error: ''));
+    }
   }
 
   Future<void> _onKeyPressed(

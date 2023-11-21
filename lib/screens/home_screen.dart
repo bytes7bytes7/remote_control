@@ -53,8 +53,6 @@ class _BodyState extends State<_Body> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<SignalBloc>();
-
     return BlocBuilder<SignalBloc, SignalState>(
       builder: (context, state) {
         return Column(
@@ -65,14 +63,7 @@ class _BodyState extends State<_Body> with TickerProviderStateMixin {
               ),
               child: Column(
                 children: [
-                  TextField(
-                    onChanged: (v) {
-                      bloc.add(SignalEvent.addressUpdated(address: v));
-                    },
-                    decoration: const InputDecoration(
-                      hintText: 'PC Address',
-                    ),
-                  ),
+                  const _AddressField(),
                   const SizedBox(
                     height: 10,
                   ),
@@ -118,6 +109,48 @@ class _BodyState extends State<_Body> with TickerProviderStateMixin {
               ),
             ),
           ],
+        );
+      },
+    );
+  }
+}
+
+class _AddressField extends StatefulWidget {
+  const _AddressField();
+
+  @override
+  State<_AddressField> createState() => _AddressFieldState();
+}
+
+class _AddressFieldState extends State<_AddressField> {
+  final _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final bloc = context.read<SignalBloc>();
+
+    return BlocConsumer<SignalBloc, SignalState>(
+      listener: (context, state) {
+        if (_controller.text != state.address) {
+          _controller.text = state.address;
+        }
+      },
+      builder: (context, state) {
+        return TextField(
+          controller: _controller,
+          onChanged: (v) {
+            bloc.add(SignalEvent.addressUpdated(address: v));
+          },
+          decoration: const InputDecoration(
+            hintText: 'PC Address',
+          ),
         );
       },
     );

@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SignalEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() init,
     required TResult Function(String address) addressUpdated,
     required TResult Function(String key) keyPressed,
     required TResult Function(List<String> keys) multipleKeysPressed,
@@ -27,6 +28,7 @@ mixin _$SignalEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
     TResult? Function(String address)? addressUpdated,
     TResult? Function(String key)? keyPressed,
     TResult? Function(List<String> keys)? multipleKeysPressed,
@@ -36,6 +38,7 @@ mixin _$SignalEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
     TResult Function(String address)? addressUpdated,
     TResult Function(String key)? keyPressed,
     TResult Function(List<String> keys)? multipleKeysPressed,
@@ -46,6 +49,7 @@ mixin _$SignalEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) init,
     required TResult Function(_AddressUpdatedEvent value) addressUpdated,
     required TResult Function(_KeyPressedEvent value) keyPressed,
     required TResult Function(_MultipleKeysPressedEvent value)
@@ -56,6 +60,7 @@ mixin _$SignalEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? init,
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult? Function(_KeyPressedEvent value)? keyPressed,
     TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
@@ -65,6 +70,7 @@ mixin _$SignalEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? init,
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult Function(_KeyPressedEvent value)? keyPressed,
     TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
@@ -91,6 +97,133 @@ class _$SignalEventCopyWithImpl<$Res, $Val extends SignalEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$InitEventImplCopyWith<$Res> {
+  factory _$$InitEventImplCopyWith(
+          _$InitEventImpl value, $Res Function(_$InitEventImpl) then) =
+      __$$InitEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitEventImplCopyWithImpl<$Res>
+    extends _$SignalEventCopyWithImpl<$Res, _$InitEventImpl>
+    implements _$$InitEventImplCopyWith<$Res> {
+  __$$InitEventImplCopyWithImpl(
+      _$InitEventImpl _value, $Res Function(_$InitEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InitEventImpl implements _InitEvent {
+  const _$InitEventImpl();
+
+  @override
+  String toString() {
+    return 'SignalEvent.init()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String address) addressUpdated,
+    required TResult Function(String key) keyPressed,
+    required TResult Function(List<String> keys) multipleKeysPressed,
+    required TResult Function(double dx, double dy) mouseMoved,
+    required TResult Function(String button) mousePressed,
+  }) {
+    return init();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String address)? addressUpdated,
+    TResult? Function(String key)? keyPressed,
+    TResult? Function(List<String> keys)? multipleKeysPressed,
+    TResult? Function(double dx, double dy)? mouseMoved,
+    TResult? Function(String button)? mousePressed,
+  }) {
+    return init?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String address)? addressUpdated,
+    TResult Function(String key)? keyPressed,
+    TResult Function(List<String> keys)? multipleKeysPressed,
+    TResult Function(double dx, double dy)? mouseMoved,
+    TResult Function(String button)? mousePressed,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) init,
+    required TResult Function(_AddressUpdatedEvent value) addressUpdated,
+    required TResult Function(_KeyPressedEvent value) keyPressed,
+    required TResult Function(_MultipleKeysPressedEvent value)
+        multipleKeysPressed,
+    required TResult Function(_MouseMovedEvent value) mouseMoved,
+    required TResult Function(_MousePressedEvent value) mousePressed,
+  }) {
+    return init(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? init,
+    TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
+    TResult? Function(_KeyPressedEvent value)? keyPressed,
+    TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    TResult? Function(_MouseMovedEvent value)? mouseMoved,
+    TResult? Function(_MousePressedEvent value)? mousePressed,
+  }) {
+    return init?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? init,
+    TResult Function(_AddressUpdatedEvent value)? addressUpdated,
+    TResult Function(_KeyPressedEvent value)? keyPressed,
+    TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
+    TResult Function(_MouseMovedEvent value)? mouseMoved,
+    TResult Function(_MousePressedEvent value)? mousePressed,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InitEvent implements SignalEvent {
+  const factory _InitEvent() = _$InitEventImpl;
 }
 
 /// @nodoc
@@ -158,6 +291,7 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() init,
     required TResult Function(String address) addressUpdated,
     required TResult Function(String key) keyPressed,
     required TResult Function(List<String> keys) multipleKeysPressed,
@@ -170,6 +304,7 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
     TResult? Function(String address)? addressUpdated,
     TResult? Function(String key)? keyPressed,
     TResult? Function(List<String> keys)? multipleKeysPressed,
@@ -182,6 +317,7 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
     TResult Function(String address)? addressUpdated,
     TResult Function(String key)? keyPressed,
     TResult Function(List<String> keys)? multipleKeysPressed,
@@ -198,6 +334,7 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) init,
     required TResult Function(_AddressUpdatedEvent value) addressUpdated,
     required TResult Function(_KeyPressedEvent value) keyPressed,
     required TResult Function(_MultipleKeysPressedEvent value)
@@ -211,6 +348,7 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? init,
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult? Function(_KeyPressedEvent value)? keyPressed,
     TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
@@ -223,6 +361,7 @@ class _$AddressUpdatedEventImpl implements _AddressUpdatedEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? init,
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult Function(_KeyPressedEvent value)? keyPressed,
     TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
@@ -312,6 +451,7 @@ class _$KeyPressedEventImpl implements _KeyPressedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() init,
     required TResult Function(String address) addressUpdated,
     required TResult Function(String key) keyPressed,
     required TResult Function(List<String> keys) multipleKeysPressed,
@@ -324,6 +464,7 @@ class _$KeyPressedEventImpl implements _KeyPressedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
     TResult? Function(String address)? addressUpdated,
     TResult? Function(String key)? keyPressed,
     TResult? Function(List<String> keys)? multipleKeysPressed,
@@ -336,6 +477,7 @@ class _$KeyPressedEventImpl implements _KeyPressedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
     TResult Function(String address)? addressUpdated,
     TResult Function(String key)? keyPressed,
     TResult Function(List<String> keys)? multipleKeysPressed,
@@ -352,6 +494,7 @@ class _$KeyPressedEventImpl implements _KeyPressedEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) init,
     required TResult Function(_AddressUpdatedEvent value) addressUpdated,
     required TResult Function(_KeyPressedEvent value) keyPressed,
     required TResult Function(_MultipleKeysPressedEvent value)
@@ -365,6 +508,7 @@ class _$KeyPressedEventImpl implements _KeyPressedEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? init,
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult? Function(_KeyPressedEvent value)? keyPressed,
     TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
@@ -377,6 +521,7 @@ class _$KeyPressedEventImpl implements _KeyPressedEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? init,
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult Function(_KeyPressedEvent value)? keyPressed,
     TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
@@ -475,6 +620,7 @@ class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() init,
     required TResult Function(String address) addressUpdated,
     required TResult Function(String key) keyPressed,
     required TResult Function(List<String> keys) multipleKeysPressed,
@@ -487,6 +633,7 @@ class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
     TResult? Function(String address)? addressUpdated,
     TResult? Function(String key)? keyPressed,
     TResult? Function(List<String> keys)? multipleKeysPressed,
@@ -499,6 +646,7 @@ class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
     TResult Function(String address)? addressUpdated,
     TResult Function(String key)? keyPressed,
     TResult Function(List<String> keys)? multipleKeysPressed,
@@ -515,6 +663,7 @@ class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) init,
     required TResult Function(_AddressUpdatedEvent value) addressUpdated,
     required TResult Function(_KeyPressedEvent value) keyPressed,
     required TResult Function(_MultipleKeysPressedEvent value)
@@ -528,6 +677,7 @@ class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? init,
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult? Function(_KeyPressedEvent value)? keyPressed,
     TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
@@ -540,6 +690,7 @@ class _$MultipleKeysPressedEventImpl implements _MultipleKeysPressedEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? init,
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult Function(_KeyPressedEvent value)? keyPressed,
     TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
@@ -637,6 +788,7 @@ class _$MouseMovedEventImpl implements _MouseMovedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() init,
     required TResult Function(String address) addressUpdated,
     required TResult Function(String key) keyPressed,
     required TResult Function(List<String> keys) multipleKeysPressed,
@@ -649,6 +801,7 @@ class _$MouseMovedEventImpl implements _MouseMovedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
     TResult? Function(String address)? addressUpdated,
     TResult? Function(String key)? keyPressed,
     TResult? Function(List<String> keys)? multipleKeysPressed,
@@ -661,6 +814,7 @@ class _$MouseMovedEventImpl implements _MouseMovedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
     TResult Function(String address)? addressUpdated,
     TResult Function(String key)? keyPressed,
     TResult Function(List<String> keys)? multipleKeysPressed,
@@ -677,6 +831,7 @@ class _$MouseMovedEventImpl implements _MouseMovedEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) init,
     required TResult Function(_AddressUpdatedEvent value) addressUpdated,
     required TResult Function(_KeyPressedEvent value) keyPressed,
     required TResult Function(_MultipleKeysPressedEvent value)
@@ -690,6 +845,7 @@ class _$MouseMovedEventImpl implements _MouseMovedEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? init,
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult? Function(_KeyPressedEvent value)? keyPressed,
     TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
@@ -702,6 +858,7 @@ class _$MouseMovedEventImpl implements _MouseMovedEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? init,
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult Function(_KeyPressedEvent value)? keyPressed,
     TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
@@ -793,6 +950,7 @@ class _$MousePressedEventImpl implements _MousePressedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() init,
     required TResult Function(String address) addressUpdated,
     required TResult Function(String key) keyPressed,
     required TResult Function(List<String> keys) multipleKeysPressed,
@@ -805,6 +963,7 @@ class _$MousePressedEventImpl implements _MousePressedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
     TResult? Function(String address)? addressUpdated,
     TResult? Function(String key)? keyPressed,
     TResult? Function(List<String> keys)? multipleKeysPressed,
@@ -817,6 +976,7 @@ class _$MousePressedEventImpl implements _MousePressedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
     TResult Function(String address)? addressUpdated,
     TResult Function(String key)? keyPressed,
     TResult Function(List<String> keys)? multipleKeysPressed,
@@ -833,6 +993,7 @@ class _$MousePressedEventImpl implements _MousePressedEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) init,
     required TResult Function(_AddressUpdatedEvent value) addressUpdated,
     required TResult Function(_KeyPressedEvent value) keyPressed,
     required TResult Function(_MultipleKeysPressedEvent value)
@@ -846,6 +1007,7 @@ class _$MousePressedEventImpl implements _MousePressedEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? init,
     TResult? Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult? Function(_KeyPressedEvent value)? keyPressed,
     TResult? Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
@@ -858,6 +1020,7 @@ class _$MousePressedEventImpl implements _MousePressedEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? init,
     TResult Function(_AddressUpdatedEvent value)? addressUpdated,
     TResult Function(_KeyPressedEvent value)? keyPressed,
     TResult Function(_MultipleKeysPressedEvent value)? multipleKeysPressed,
